@@ -1,9 +1,19 @@
+<?php 
+{
+    $cookieString = substr($_COOKIE["product"],1);
+        $cookieArray = explode(";", $cookieString);
+
+        $cookieSize = sizeof($cookieArray);
+        $limit = max($cookieSize-5, 0);
+}
+?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Store Template</title>
+	<title>Akshay Marketplace</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -65,25 +75,26 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="index.html">Store</a></div>
+							<div id="colorlib-logo"><a href="http://cmpe272marketplace.ml/market_place_dev_akshay/">Store</a></div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
-								<li class="active"><a href="index.html">Home</a></li>
+								<li class="active"><a href="http://cmpe272marketplace.ml/market_place_dev_akshay/">Home</a></li>
 								<li class="has-dropdown">
-									<a href="shop.html">Shop</a>
+									<a href="shop.php?from=akshay">Shop</a>
 									<ul class="dropdown">
-										<li><a href="product-detail.html">Product Detail</a></li>
-										<li><a href="cart.html">Shipping Cart</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="order-complete.html">Order Complete</a></li>
-										<li><a href="add-to-wishlist.html">Wishlist</a></li>
+										<li><a href="product-detail.php?id=7">Product Detail</a></li>
+										<li><a href="cart.php">Shipping Cart</a></li>
+										<li><a href="checkout.php">Checkout</a></li>
+										<li><a href="order-complete.php">Order Complete</a></li>
+										<li><a href="add-to-wishlist.php">Wishlist</a></li>
 									</ul>
 								</li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+								<li><a href="blog.php">Blog</a></li>
+								<li><a href="about.php">About</a></li>
+								<li><a href="contact.php">Contact</a></li>
+								<li><a href="cart.php"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+								<li><a href="you.php">You</a></li>
 							</ul>
 						</div>
 					</div>
@@ -93,17 +104,35 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-			   	<li style="background-image: url(images/img_bg_1.jpg);">
+			   	<li style="background-image: url(http://akshayjaiswal.me/images/corsair2banner.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
 				   			<div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
 				   				<div class="slider-text-inner">
 				   					<div class="desc">
-					   					<h1 class="head-1">Men's</h1>
-					   					<h2 class="head-2">Jeans</h2>
+					   					<h1 class="head-1">Mechanical</h1>
+					   					<h2 class="head-2">Keyboards</h2>
 					   					<h2 class="head-3">Collection</h2>
-					   					<p class="category"><span>New stylish shirts, pants &amp; Accessories</span></p>
+					   					<p class="category"><span>New stylish keyboards &amp; Accessories</span></p>
+					   					<p><a href="http://cmpe272marketplace.ml/market_place_dev_akshay/shop.php?from=akshay" class="btn btn-primary">Shop Keyboards</a></p>
+				   					</div>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+				<li style="background-image: url(http://nirbhaykekre.com/img/product/harryPotter1.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
+				   				<div class="slider-text-inner">
+				   					<div class="desc">
+					   					<h1 class="head-1">Amazing</h1>
+					   					<h2 class="head-2">Books</h2>
+					   					<h2 class="head-3">Collection</h2>
+					   					<p class="category"><span>New entries in GOT series &amp; More</span></p>
 					   					<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
 				   					</div>
 				   				</div>
@@ -111,7 +140,7 @@
 				   		</div>
 			   		</div>
 			   	</li>
-			   	<li style="background-image: url(images/img_bg_2.jpg);">
+			   	<li style="background-image: url(http://www.tapanhere.com/wp-content/uploads/2017/04/home-2.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
@@ -129,7 +158,7 @@
 				   		</div>
 			   		</div>
 			   	</li>
-			   	<li style="background-image: url(images/img_bg_3.jpg);">
+			   	<li style="background-image: url(http://yashmahajan.com/img/bg-img/bg-1.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
@@ -150,49 +179,12 @@
 			  	</ul>
 		  	</div>
 		</aside>
-		<div id="colorlib-featured-product">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<a href="shop.html" class="f-product-1" style="background-image: url(images/item-1.jpg);">
-							<div class="desc">
-								<h2>Fahion <br>for <br>men</h2>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-6">
-						<div class="row">
-							<div class="col-md-6">
-								<a href="" class="f-product-2" style="background-image: url(images/item-2.jpg);">
-									<div class="desc">
-										<h2>New <br>Arrival <br>Dress</h2>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-6">
-								<a href="" class="f-product-2" style="background-image: url(images/item-4.jpg);">
-									<div class="desc">
-										<h2>Sale <br>20% <br>off</h2>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-12">
-								<a href="" class="f-product-2" style="background-image: url(images/item-3.jpg);">
-									<div class="desc">
-										<h2>Shoes <br>for <br>men</h2>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+
 		<div class="colorlib-shop">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
-						<h2><span>New Arrival</span></h2>
+						<h2><span>Most Viewed</span></h2>
 						<p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 					</div>
 				</div>
@@ -203,15 +195,15 @@
 								<p class="tag"><span class="new">New</span></p>
 								<div class="cart">
 									<p>
-										<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -222,15 +214,15 @@
 								<p class="tag"><span class="new">New</span></p>
 								<div class="cart">
 									<p>
-										<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -241,15 +233,15 @@
 								<p class="tag"><span class="new">New</span></p>
 								<div class="cart">
 									<p>
-										<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -260,15 +252,15 @@
 								<p class="tag"><span class="new">New</span></p>
 								<div class="cart">
 									<p>
-										<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -276,6 +268,8 @@
 				</div>
 			</div>
 		</div>
+
+
 		<div id="colorlib-intro" class="colorlib-intro" style="background-image: url(images/cover-img-1.jpg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
@@ -296,7 +290,7 @@
 								<div class="text-rights">
 									<h3 class="title">Just hurry up limited offer!</h3>
 									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-									<p><a href="shop.html" class="btn btn-primary">Shop Now</a> <a href="#" class="btn btn-primary btn-outline">Read more</a></p>
+									<p><a href="shop.php" class="btn btn-primary">Shop Now</a> <a href="#" class="btn btn-primary btn-outline">Read more</a></p>
 								</div>
 							</div>
 						</div>
@@ -320,15 +314,15 @@
 								<p class="tag"><span class="sale">Sale</span></p>
 								<div class="cart">
 									<p>
-										<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$199.00</span> <span class="sale">$300.00</span> </p>
 							</div>
 						</div>
@@ -339,15 +333,15 @@
 								<p class="tag"><span class="new">New</span></p>
 								<div class="cart">
 									<p>
-										<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -358,15 +352,15 @@
 								<p class="tag"><span class="new">New</span></p>
 								<div class="cart">
 									<p>
-										<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -377,15 +371,15 @@
 								<p class="tag"><span class="new">New</span></p>
 								<div class="cart">
 									<p>
-										<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -396,15 +390,15 @@
 								<p class="tag"><span class="new">New</span></p>
 								<div class="cart">
 									<p>
-										<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -415,15 +409,15 @@
 								<p class="tag"><span class="new">New</span></p>
 								<div class="cart">
 									<p>
-										<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -434,15 +428,15 @@
 								<p class="tag"><span class="new">New</span></p>
 								<div class="cart">
 									<p>
-										<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -453,15 +447,15 @@
 								<p class="tag"><span class="new">New</span></p>
 								<div class="cart">
 									<p>
-										<span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -527,33 +521,33 @@
 				<div class="row">
 					<div class="col-md-4">
 						<article class="article-entry">
-							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-1.jpg);"></a>
+							<a href="blog.php" class="blog-img" style="background-image: url(images/blog-1.jpg);"></a>
 							<div class="desc">
 								<p class="meta"><span class="day">02</span><span class="month">Mar</span></p>
 								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.html">Openning Branches</a></h2>
+								<h2><a href="blog.php">Openning Branches</a></h2>
 								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
 							</div>
 						</article>
 					</div>
 					<div class="col-md-4">
 						<article class="article-entry">
-							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-2.jpg);"></a>
+							<a href="blog.php" class="blog-img" style="background-image: url(images/blog-2.jpg);"></a>
 							<div class="desc">
 								<p class="meta"><span class="day">02</span><span class="month">Mar</span></p>
 								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.html">Openning Branches</a></h2>
+								<h2><a href="blog.php">Openning Branches</a></h2>
 								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
 							</div>
 						</article>
 					</div>
 					<div class="col-md-4">
 						<article class="article-entry">
-							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-3.jpg);"></a>
+							<a href="blog.php" class="blog-img" style="background-image: url(images/blog-3.jpg);"></a>
 							<div class="desc">
 								<p class="meta"><span class="day">02</span><span class="month">Mar</span></p>
 								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.html">Openning Branches</a></h2>
+								<h2><a href="blog.php">Openning Branches</a></h2>
 								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
 							</div>
 						</article>
@@ -632,7 +626,7 @@
 					<div class="col-md-2">
 						<h4>News</h4>
 						<ul class="colorlib-footer-links">
-							<li><a href="blog.html">Blog</a></li>
+							<li><a href="blog.php">Blog</a></li>
 							<li><a href="#">Press</a></li>
 							<li><a href="#">Exhibitions</a></li>
 						</ul>

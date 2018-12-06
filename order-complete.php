@@ -65,25 +65,25 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="index.html">Store</a></div>
+							<div id="colorlib-logo"><a href="index.php">Store</a></div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
-								<li><a href="index.html">Home</a></li>
-								<li class="has-dropdown">
-									<a href="shop.html">Shop</a>
+								<li><a href="index.php">Home</a></li>
+								<li class="has-dropdown active">
+									<a href="shop.php?from=akshay">Shop</a>
 									<ul class="dropdown">
-										<li><a href="product-detail.html">Product Detail</a></li>
-										<li><a href="cart.html">Shipping Cart</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="order-complete.html">Order Complete</a></li>
-										<li><a href="add-to-wishlist.html">Wishlist</a></li>
+										<li><a href="product-detail.php">Product Detail</a></li>
+										<li><a href="cart.php">Shipping Cart</a></li>
+										<li><a href="checkout.php">Checkout</a></li>
+										<li><a href="order-complete.php">Order Complete</a></li>
+										<li><a href="add-to-wishlist.php">Wishlist</a></li>
 									</ul>
 								</li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="about.html">About</a></li>
-								<li class="active"><a href="contact.html">Contact</a></li>
-								<li><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+								<li><a href="blog.php">Blog</a></li>
+								<li><a href="about.php">About</a></li>
+								<li><a href="contact.php">Contact</a></li>
+								<li><a href="cart.php"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
 							</ul>
 						</div>
 					</div>
@@ -99,8 +99,8 @@
 			   			<div class="row">
 				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
 				   				<div class="slider-text-inner text-center">
-				   					<h1>Contact</h1>
-				   					<h2 class="bread"><span><a href="index.html">Home</a></span> <span>Contact</span></h2>
+				   					<h1>Order Complete</h1>
+				   					<h2 class="bread"><span><a href="index.php">Home</a></span> <span><a href="cart.php">Shopping Cart</a></span> <span>Checkout</span></h2>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -110,72 +110,64 @@
 		  	</div>
 		</aside>
 
-		<div id="colorlib-contact">
+		<div class="colorlib-shop">
 			<div class="container">
-				<div class="row">
+				<div class="row row-pb-lg">
 					<div class="col-md-10 col-md-offset-1">
-						<h3>Contact Information</h3>
-						<div class="row contact-info-wrap">
-							<div class="col-md-3">
-								<p><span><i class="icon-location"></i></span> 198 West 21th Street, <br> Suite 721 New York NY 10016</p>
+						<div class="process-wrap">
+							<div class="process text-center active">
+								<p><span>01</span></p>
+								<h3>Shopping Cart</h3>
 							</div>
-							<div class="col-md-3">
-								<p><span><i class="icon-phone3"></i></span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+							<div class="process text-center active">
+								<p><span>02</span></p>
+								<h3>Checkout</h3>
 							</div>
-							<div class="col-md-3">
-								<p><span><i class="icon-paperplane"></i></span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-							</div>
-							<div class="col-md-3">
-								<p><span><i class="icon-globe"></i></span> <a href="#">yoursite.com</a></p>
+							<div class="process text-center">
+								<p><span>03</span></p>
+								<h3>Order Complete</h3>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-10 col-md-offset-1">
-						<div class="contact-wrap">
-							<h3>Get In Touch</h3>
-							<form action="#">
-								<div class="row form-group">
-									<div class="col-md-6 padding-bottom">
-										<label for="fname">First Name</label>
-										<input type="text" id="fname" class="form-control" placeholder="Your firstname">
-									</div>
-									<div class="col-md-6">
-										<label for="lname">Last Name</label>
-										<input type="text" id="lname" class="form-control" placeholder="Your lastname">
-									</div>
-								</div>
-
-								<div class="row form-group">
-									<div class="col-md-12">
-										<label for="email">Email</label>
-										<input type="text" id="email" class="form-control" placeholder="Your email address">
-									</div>
-								</div>
-
-								<div class="row form-group">
-									<div class="col-md-12">
-										<label for="subject">Subject</label>
-										<input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
-									</div>
-								</div>
-
-								<div class="row form-group">
-									<div class="col-md-12">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
-									</div>
-								</div>
-								<div class="form-group text-center">
-									<input type="submit" value="Send Message" class="btn btn-primary">
-								</div>
-							</form>		
-						</div>
+				</div>
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1 text-center">
+						<span class="icon"><i class="icon-shopping-cart"></i></span>
+						<h2>Thank you for purchasing, Your order is complete</h2>
+						<p>
+							<a href="index.php"class="btn btn-primary">Home</a>
+							<a href="shop.php"class="btn btn-primary btn-outline">Continue Shopping</a>
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div id="map" class="colorlib-map"></div>
+
+		<div id="colorlib-subscribe">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="col-md-6 text-center">
+							<h2><i class="icon-paperplane"></i>Sign Up for a Newsletter</h2>
+						</div>
+						<div class="col-md-6">
+							<form class="form-inline qbstp-header-subscribe">
+								<div class="row">
+									<div class="col-md-12 col-md-offset-0">
+										<div class="form-group">
+											<input type="text" class="form-control" id="email" placeholder="Enter your email">
+											<button type="submit" class="btn btn-primary">Subscribe</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<footer id="colorlib-footer" role="contentinfo">
 			<div class="container">
@@ -222,7 +214,7 @@
 					<div class="col-md-2">
 						<h4>News</h4>
 						<ul class="colorlib-footer-links">
-							<li><a href="blog.html">Blog</a></li>
+							<li><a href="blog.php">Blog</a></li>
 							<li><a href="#">Press</a></li>
 							<li><a href="#">Exhibitions</a></li>
 						</ul>
@@ -255,7 +247,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</footer>
 	</div>
 
-
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
 	</div>
@@ -279,11 +270,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/bootstrap-datepicker.js"></script>
 	<!-- Stellar Parallax -->
 	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Google Map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-	<script src="js/google_map.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	</script>
 
 	</body>
 </html>

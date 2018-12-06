@@ -1,3 +1,168 @@
+<?php 
+if(isset($_GET['from']))
+{
+
+	$curl = curl_init();
+	$id = $_GET['id'];
+	$from = $_GET['from'];
+	// echo $from;
+
+	function getProductsFromAkshay() {
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id='."$id",
+			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+		));
+		$resp = curl_exec($curl);
+		$product = json_decode($resp, true);
+		return $product;
+	}
+
+	function getProductsFromNirbhay() {
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'http://nirbhaykekre.com/book.php?id='."$id",
+			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+		));
+		$resp = curl_exec($curl);
+		echo $resp;
+		$product = json_decode($resp, true);
+		return $product;
+	}
+	function getProductsFromTapan() {
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'http://www.tapanhere.com/wp-json/products/productsinfo?id='."$id",
+			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+		));
+		$resp = curl_exec($curl);
+		$product = json_decode($resp, true);
+		return $product;
+	}
+	function getProductsFromYash() {
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'http://yashmahajan.com/getProductsById.php?id='."$id",
+			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+		));
+		$resp = curl_exec($curl);
+		$product = json_decode($resp, true);
+		return $product;
+	}
+
+	if($_GET['from'] == "akshay")
+	{
+		curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id='."$id",
+			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+		));
+		$resp = curl_exec($curl);
+		$product = json_decode($resp, true);
+	}
+
+	if($_GET['from'] == "nirbhay")
+	{
+		curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'http://nirbhaykekre.com/book.php?id='."$id",
+			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+		));
+		$resp = curl_exec($curl);
+		$product = json_decode($resp, true);
+	}
+
+	if($_GET['from'] == "tapan")
+	{
+		curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'http://www.tapanhere.com/wp-json/products/productsinfo?id='."$id",
+			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+		));
+		$resp = curl_exec($curl);
+		$product = json_decode($resp, true);
+	}
+
+	if($_GET['from'] == "yash")
+	{
+		curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'http://yashmahajan.com/getProductsById.php?id='."$id",
+			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+		));
+		$resp = curl_exec($curl);
+		$product = json_decode($resp, true);
+	}
+	// else if($_GET['from'] == "nirbhay")
+	// {
+	// 	curl_setopt_array($curl, array(
+	// 		CURLOPT_RETURNTRANSFER => 1,
+	// 		CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id='."$id",
+	// 		CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+	// 	));
+	// 	$resp = curl_exec($curl);
+	// 	$product = json_decode($resp, true);
+	
+	// }
+	// else if($_GET['from'] == "tapan")
+	// {
+	// 	curl_setopt_array($curl, array(
+	// 		CURLOPT_RETURNTRANSFER => 1,
+	// 		CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id='."$id",
+	// 		CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+	// 	));
+	// 	$resp = curl_exec($curl);
+	// 	$product = json_decode($resp, true);
+	
+	// }
+	// else if($_GET['from'] == "yash")
+	// {
+	// 	curl_setopt_array($curl, array(
+	// 		CURLOPT_RETURNTRANSFER => 1,
+	// 		CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id='."$id",
+	// 		CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+	// 	));
+		
+	// 	$resp = curl_exec($curl);
+	// 	$product = json_decode($resp, true);
+	// }
+
+	
+	if (curl_error($curl)) 
+	{
+		$error_msg = curl_error($curl);
+		echo $error_msg;
+	}
+	$productJSON = json_encode($product[0]);
+
+
+	if($_GET['from'] == "akshay")
+	{
+		curl_setopt_array($curl, array(
+			CURLOPT_RETURNTRANSFER => 1,
+			CURLOPT_URL => 'http://akshayjaiswal.me/getreviewbyproductid.php?id='."$id",
+			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+		));
+		$reviewresp = curl_exec($curl);
+		$reviews = json_decode($reviewresp, true);
+		// echo "product : ".$product;
+	}
+	if (curl_error($curl)) 
+	{
+		$error_msg = curl_error($curl);
+		echo $error_msg;
+	}
+	// $reviewJSON = json_encode($reviews[0]);
+
+	// echo $productJSON;
+  setcookie("url",$_COOKIE["url"].",".$_SERVER['REQUEST_URI'],time()+60*60);
+  setcookie("product",$_COOKIE["product"]."; $productJSON",time()+60*60);
+// }
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -65,25 +230,27 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="index.html">Store</a></div>
+							<div id="colorlib-logo"><a href="index.php">Store</a></div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
-								<li><a href="index.html">Home</a></li>
-								<li class="has-dropdown active">
-									<a href="shop.html">Shop</a>
+								<li><a href="index.php">Home</a></li>
+								<li class="has-dropdown">
+									<a href="shop.php?name=akshay">Shop</a>
 									<ul class="dropdown">
-										<li><a href="product-detail.html">Product Detail</a></li>
-										<li><a href="cart.html">Shipping Cart</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="order-complete.html">Order Complete</a></li>
-										<li><a href="add-to-wishlist.html">Wishlist</a></li>
+										<li class="active"><a href="product-detail.php?id=8">Product Detail</a></li>
+										<li><a href="cart.php">Shipping Cart</a></li>
+										<li><a href="checkout.php">Checkout</a></li>
+										<li><a href="order-complete.php">Order Complete</a></li>
+										<li><a href="add-to-wishlist.php">Wishlist</a></li>
+										
 									</ul>
 								</li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+								<li><a href="blog.php">Blog</a></li>
+								<li><a href="about.php">About</a></li>
+								<li><a href="contact.php">Contact</a></li>
+								<li><a href="cart.php"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+								<li><a href="you.php">You</a></li>
 							</ul>
 						</div>
 					</div>
@@ -93,14 +260,14 @@
 		<aside id="colorlib-hero" class="breadcrumbs">
 			<div class="flexslider">
 				<ul class="slides">
-			   	<li style="background-image: url(images/cover-img-1.jpg);">
+			   	<li style="background-image: url(images/productbanner.png);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
 				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
 				   				<div class="slider-text-inner text-center">
 				   					<h1>Product Detail</h1>
-				   					<h2 class="bread"><span><a href="index.html">Home</a></span> <span><a href="shop.html">Product</a></span> <span>Product Detail</span></h2>
+				   					<h2 class="bread"><span><a href="index.php">Home</a></span> <span><a href="shop.php">Product</a></span> <span>Product Detail</span></h2>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -112,95 +279,120 @@
 
 		<div class="colorlib-shop">
 			<div class="container">
-				<div class="row row-pb-lg">
-					<div class="col-md-10 col-md-offset-1">
-						<div class="product-detail-wrap">
-							<div class="row">
-								<div class="col-md-5">
-									<div class="product-entry">
-										<div class="product-img" style="background-image: url(images/item-7.jpg);">
-											<p class="tag"><span class="sale">Sale</span></p>
-										</div>
-										<div class="thumb-nail">
-											<a href="#" class="thumb-img" style="background-image: url(images/item-11.jpg);"></a>
-											<a href="#" class="thumb-img" style="background-image: url(images/item-12.jpg);"></a>
-											<a href="#" class="thumb-img" style="background-image: url(images/item-16.jpg);"></a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-7">
-									<div class="desc">
-										<h3>Dummy Product Name</h3>
-										<p class="price">
-											<span>$68.00</span> 
-											<span class="rate text-right">
-												<i class="icon-star-full"></i>
-												<i class="icon-star-full"></i>
-												<i class="icon-star-full"></i>
-												<i class="icon-star-full"></i>
-												<i class="icon-star-half"></i>
-												(74 Rating)
-											</span>
-										</p>
-										<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-										<div class="color-wrap">
-											<p class="color-desc">
-												Color: 
-												<a href="#" class="color color-1"></a>
-												<a href="#" class="color color-2"></a>
-												<a href="#" class="color color-3"></a>
-												<a href="#" class="color color-4"></a>
-												<a href="#" class="color color-5"></a>
-											</p>
-										</div>
-										<div class="size-wrap">
-											<p class="size-desc">
-												Size: 
-												<a href="#" class="size size-1">xs</a>
-												<a href="#" class="size size-2">s</a>
-												<a href="#" class="size size-3">m</a>
-												<a href="#" class="size size-4">l</a>
-												<a href="#" class="size size-5">xl</a>
-												<a href="#" class="size size-5">xxl</a>
-											</p>
-										</div>
-										<div class="row row-pb-sm">
-											<div class="col-md-4">
-                                    <div class="input-group">
-                                    	<span class="input-group-btn">
-                                       	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
-                                          <i class="icon-minus2"></i>
-                                       	</button>
-                                   		</span>
-                                    	<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
-                                    	<span class="input-group-btn">
-                                       	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-                                            <i class="icon-plus2"></i>
-                                        </button>
-                                    	</span>
-                                 	</div>
-                        			</div>
-										</div>
-										<p><a href="cart.html" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+
+				<?php
+				// if(isset($_GET['id']))
+				// {
+					// $curl = curl_init();
+					// $id = $_GET['id'];
+					// curl_setopt_array($curl, array(
+					// 	CURLOPT_RETURNTRANSFER => 1,
+					// 	CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id='."$id",
+					// 	CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+						
+					// ));
+			
+					// $resp = curl_exec($curl);
+					// $product = json_decode($resp, true);
+					// if (curl_error($curl)) 
+					// {
+					// 	$error_msg = curl_error($curl);
+					// 	echo $error_msg;
+					// }
+					
+
+				echo '<div class="row row-pb-lg">';
+				echo '<div class="col-md-10 col-md-offset-1">';
+					echo '<div class="product-detail-wrap">';
+						echo '<div class="row">';
+							echo '<div class="col-md-5">';
+								echo '<div class="product-entry">';
+									echo '<div class="product-img" style="background-image: url('."{$product[0]['URL']}".');">';
+										echo '<p class="tag"><span class="sale">Sale</span></p>';
+										echo '</div>';
+											echo '<div class="thumb-nail">';
+											echo '<a href="#" class="thumb-img" style="background-image: url('."{$product[0]['url_2']}".');"></a>';
+											echo '<a href="#" class="thumb-img" style="background-image: url('."{$product[0]['url_3']}".');"></a>';
+											echo '<a href="#" class="thumb-img" style="background-image: url('."{$product[0]['url_4']}".');"></a>';
+										echo '</div>';
+									echo '</div>';
+								echo '</div>';
+								echo '<div class="col-md-7">';
+									echo '<div class="desc">';
+										echo '<h3>'."{$product[0]['name']}".'</h3>';
+										echo '<p class="price">';
+											echo '<span>$'."{$product[0]['price']}".'</span> ';
+											echo '<span class="rate text-right">';
+												echo '<i class="icon-star-full"></i>';
+												echo '<i class="icon-star-full"></i>';
+												echo '<i class="icon-star-full"></i>';
+												echo '<i class="icon-star-full"></i>';
+												echo '<i class="icon-star-half"></i>';
+												echo '(74 Rating)';
+												echo '</span>';
+												echo '</p>';
+										echo '<p>'."{$product[0]['description']}".'</p>';
+										// echo '<div class="color-wrap">';
+										// echo '<p class="color-desc">';
+										// echo 'Color: ';
+										// echo '<a href="#" class="color color-1"></a>';
+										// echo '<a href="#" class="color color-2"></a>';
+										// echo '<a href="#" class="color color-3"></a>';
+										// echo '<a href="#" class="color color-4"></a>';
+										// echo '<a href="#" class="color color-5"></a>';
+										// echo '</p>';
+										// echo '</div>';
+										// echo '<div class="size-wrap">';
+										// echo '<p class="size-desc">';
+										// echo 'Size: ';
+										// echo '<a href="#" class="size size-1">xs</a>';
+										// echo '<a href="#" class="size size-2">s</a>';
+										// echo '<a href="#" class="size size-3">m</a>';
+										// echo '<a href="#" class="size size-4">l</a>';
+										// echo '<a href="#" class="size size-5">xl</a>';
+										// echo '<a href="#" class="size size-5">xxl</a>';
+										// echo '</p>';
+										// echo '</div>';
+
+										echo '<div class="row row-pb-sm">';
+										echo '<div class="col-md-4">';
+										echo '<div class="input-group">';
+                                    	echo '<span class="input-group-btn">';
+										echo '<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">';
+										echo '<i class="icon-minus2"></i>';
+										echo '</button>';
+										echo '</span>';
+                                    	echo '<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">';
+                                    	echo '<span class="input-group-btn">';
+										echo '<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">';
+										echo '<i class="icon-plus2"></i>';
+                                        echo '</button>';
+                                    	echo '</span>';
+										echo '</div>';
+										echo '</div>';
+										echo '</div>';
+										echo '<p><a href="cart.php" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>';
+										echo '</div>';
+										echo '</div>';
+										echo '</div>';
+										echo '</div>';
+										echo '</div>';
+										echo '</div>';
+				// }
+				?>
+
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1">
 						<div class="row">
 							<div class="col-md-12 tabulation">
 								<ul class="nav nav-tabs">
-									<li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+									<li class="active"><a data-toggle="tab" href="#review">Reviews</a></li>
+									<li><a data-toggle="tab" href="#description">Description</a></li>
 									<li><a data-toggle="tab" href="#manufacturer">Manufacturer</a></li>
-									<li><a data-toggle="tab" href="#review">Reviews</a></li>
 								</ul>
 								<div class="tab-content">
-									<div id="description" class="tab-pane fade in active">
-										<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-										<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+									<div id="description" class="tab-pane fade  ">
+										<p><?php echo "{$product[0]['description']}" ?></p>
 										<ul>
 											<li>The Big Oxmox advised her not to do so</li>
 											<li>Because there were thousands of bad Commas</li>
@@ -214,35 +406,19 @@
 										<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
 								      
 								   </div>
-								   <div id="review" class="tab-pane fade">
+								   <div id="review" class="tab-pane fade in active">
 								   	<div class="row">
 								   		<div class="col-md-7">
-								   			<h3>23 Reviews</h3>
+											<h3><?php echo sizeof($reviews)?> Reviews</h3>
+											<?php
+												foreach($reviews as $review)
+												{
+											?>
 								   			<div class="review">
-										   		<div class="user-img" style="background-image: url(images/person1.jpg)"></div>
-										   		<div class="desc">
-										   			<h4>
-										   				<span class="text-left">Jacob Webb</span>
-										   				<span class="text-right">14 March 2018</span>
-										   			</h4>
-										   			<p class="star">
-										   				<span>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-half"></i>
-										   					<i class="icon-star-empty"></i>
-									   					</span>
-									   					<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-										   			</p>
-										   			<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-										   		</div>
-										   	</div>
-										   	<div class="review">
 										   		<div class="user-img" style="background-image: url(images/person2.jpg)"></div>
 										   		<div class="desc">
 										   			<h4>
-										   				<span class="text-left">Jacob Webb</span>
+										   				<span class="text-left"><?php echo "{$review['username']}"?></span>
 										   				<span class="text-right">14 March 2018</span>
 										   			</h4>
 										   			<p class="star">
@@ -255,33 +431,24 @@
 									   					</span>
 									   					<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
 										   			</p>
-										   			<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
+										   			<p><?php echo "{$review['review']}"?></p>
 										   		</div>
-										   	</div>
-										   	<div class="review">
-										   		<div class="user-img" style="background-image: url(images/person3.jpg)"></div>
-										   		<div class="desc">
-										   			<h4>
-										   				<span class="text-left">Jacob Webb</span>
-										   				<span class="text-right">14 March 2018</span>
-										   			</h4>
-										   			<p class="star">
-										   				<span>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-half"></i>
-										   					<i class="icon-star-empty"></i>
-									   					</span>
-									   					<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-										   			</p>
-										   			<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-										   		</div>
-										   	</div>
+											</div>
+											  <?php 
+											  }
+											?>
+
 								   		</div>
 								   		<div class="col-md-4 col-md-push-1">
 								   			<div class="rating-wrap">
-									   			<h3>Give a Review</h3>
+												<h3>Give a Review</h3>
+												<div clas="container">
+												<div class="rating">
+													
+													<textarea row=5 col=20 style="height: auto;"></textarea>   
+													
+												</div>
+												<a href="" style="font-size:10px; border-radius:0px;" class="btn btn-primary"><i class="icon-pencil"></i> Submit</a>
 									   			<p class="star">
 									   				<span>
 									   					<i class="icon-star-full"></i>
@@ -346,6 +513,8 @@
 						</div>
 					</div>
 				</div>
+
+
 			</div>
 		</div>
 
@@ -365,14 +534,14 @@
 								<div class="cart">
 									<p>
 										<span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -384,14 +553,14 @@
 								<div class="cart">
 									<p>
 										<span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -403,14 +572,14 @@
 								<div class="cart">
 									<p>
 										<span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -422,14 +591,14 @@
 								<div class="cart">
 									<p>
 										<span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-										<span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
 										<span><a href="#"><i class="icon-heart3"></i></a></span>
-										<span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
 									</p>
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.html">Floral Dress</a></h3>
+								<h3><a href="shop.php">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -508,7 +677,7 @@
 					<div class="col-md-2">
 						<h4>News</h4>
 						<ul class="colorlib-footer-links">
-							<li><a href="blog.html">Blog</a></li>
+							<li><a href="blog.php">Blog</a></li>
 							<li><a href="#">Press</a></li>
 							<li><a href="#">Exhibitions</a></li>
 						</ul>
@@ -607,3 +776,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</body>
 </html>
 
+<?php
+}
+else
+{	
+	header("Location: shop.php");
+	echo "ERROR 404 NOT FOUND";
+}
+?>

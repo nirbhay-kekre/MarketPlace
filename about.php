@@ -65,25 +65,25 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="index.html">Store</a></div>
+							<div id="colorlib-logo"><a href="index.php">Store</a></div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
-								<li><a href="index.html">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 								<li class="has-dropdown">
-									<a href="shop.html">Shop</a>
+									<a href="shop.php?from=akshay">Shop</a>
 									<ul class="dropdown">
-										<li><a href="product-detail.html">Product Detail</a></li>
-										<li><a href="cart.html">Shipping Cart</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="order-complete.html">Order Complete</a></li>
-										<li><a href="add-to-wishlist.html">Wishlist</a></li>
+										<li><a href="product-detail.php">Product Detail</a></li>
+										<li><a href="cart.php">Shipping Cart</a></li>
+										<li><a href="checkout.php">Checkout</a></li>
+										<li><a href="order-complete.php">Order Complete</a></li>
+										<li><a href="add-to-wishlist.php">Wishlist</a></li>
 									</ul>
 								</li>
-								<li class="active"><a href="blog.html">Blog</a></li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+								<li><a href="blog.php">Blog</a></li>
+								<li class="active"><a href="about.php">About</a></li>
+								<li><a href="contact.php">Contact</a></li>
+								<li><a href="cart.php"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
 							</ul>
 						</div>
 					</div>
@@ -99,8 +99,8 @@
 			   			<div class="row">
 				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
 				   				<div class="slider-text-inner text-center">
-				   					<h1>Our Blog</h1>
-				   					<h2 class="bread"><span><a href="index.html">Home</a></span> <span>Blog</span></h2>
+				   					<h1>About Us</h1>
+				   					<h2 class="bread"><span><a href="index.php">Home</a></span> <span>About</span></h2>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -110,111 +110,59 @@
 		  	</div>
 		</aside>
 
-		<div class="colorlib-blog">
+		<div id="colorlib-about">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-1.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">14</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.html">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
+					<div class="about-flex">
+						<div class="col-one-forth">
+							<div class="row">
+								<div class="col-md-12 about">
+									<h2>About</h2>
+
+									<ul>
+										<li><a href="#">History</a></li>
+										<li><a href="#">Staff</a></li>
+										<li><a href="#">Connect with us</a></li>
+										<li><a href="#">Faqs</a></li>
+										<li><a href="#">Career</a></li>
+									</ul>
+								</div>
 							</div>
-						</article>
-					</div>
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-2.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">14</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.html">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
+						</div>
+						<div class="col-three-forth">
+							<h2>History</h2>
+							<div class="row">
+								<div class="col-md-12">
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+
+									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+
+									<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+
+									<div class="row row-pb-sm">
+										<div class="col-md-6">
+											<img class="img-responsive" src="images/about.jpg" alt="">
+										</div>
+										<div class="col-md-6">
+											<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+											<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+										</div>
+									</div>
+
+
+									<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+
+									<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country.</p>
+
+									<p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+								</div>
 							</div>
-						</article>
-					</div>
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-3.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">14</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.html">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-1.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">14</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.html">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-2.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">14</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.html">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-3.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">14</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.html">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-1.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">14</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.html">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-2.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">14</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.html">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.html" class="blog-img" style="background-image: url(images/blog-3.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">14</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.html">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 
 		<div id="colorlib-subscribe">
 			<div class="overlay"></div>
@@ -286,7 +234,7 @@
 					<div class="col-md-2">
 						<h4>News</h4>
 						<ul class="colorlib-footer-links">
-							<li><a href="blog.html">Blog</a></li>
+							<li><a href="blog.php">Blog</a></li>
 							<li><a href="#">Press</a></li>
 							<li><a href="#">Exhibitions</a></li>
 						</ul>
@@ -307,7 +255,6 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<p>
-							
 							<span class="block"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span> 
@@ -344,6 +291,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	</script>
 
 	</body>
 </html>
