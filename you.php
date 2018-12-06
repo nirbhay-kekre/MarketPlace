@@ -1,4 +1,5 @@
 <?php 
+require 'auth.php';
 // if(isset($_GET['name']))
 {
     $cookieString = substr($_COOKIE["product"],1);
@@ -85,7 +86,7 @@
 								<li class="has-dropdown">
 									<a href="shop.php?name=akshay">Shop</a>
 									<ul class="dropdown">
-										<li><a href="product-detail.php?id=7">Product Detail</a></li>
+										<li><a href="product-detail.php?id=7&from=akshay">Product Detail</a></li>
 										<li><a href="cart.php">Shipping Cart</a></li>
 										<li><a href="checkout.php">Checkout</a></li>
 										<li><a href="order-complete.php">Order Complete</a></li>

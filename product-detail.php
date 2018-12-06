@@ -1,4 +1,5 @@
 <?php 
+require 'auth.php';
 if(isset($_GET['from']))
 {
 
@@ -236,9 +237,9 @@ if(isset($_GET['from']))
 							<ul>
 								<li><a href="index.php">Home</a></li>
 								<li class="has-dropdown">
-									<a href="shop.php?name=akshay">Shop</a>
+									<a href="shop.php?name=all">Shop</a>
 									<ul class="dropdown">
-										<li class="active"><a href="product-detail.php?id=8">Product Detail</a></li>
+										<li class="active"><a href="product-detail.php?id=1&from=akshay">Product Detail</a></li>
 										<li><a href="cart.php">Shipping Cart</a></li>
 										<li><a href="checkout.php">Checkout</a></li>
 										<li><a href="order-complete.php">Order Complete</a></li>
@@ -250,7 +251,14 @@ if(isset($_GET['from']))
 								<li><a href="about.php">About</a></li>
 								<li><a href="contact.php">Contact</a></li>
 								<li><a href="cart.php"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
-								<li><a href="you.php">You</a></li>
+								<?php 
+									if(isset($_SESSION['SESS_USER_FNAME']))
+									{
+								?>
+								<li><a href="logout.php">Logout <?php echo "{$_SESSION['SESS_USER_FNAME']}"?></a></li>
+								<?php
+									}
+								?>
 							</ul>
 						</div>
 					</div>
