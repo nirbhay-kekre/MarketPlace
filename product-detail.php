@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require 'auth.php';
 if(isset($_GET['from']))
 {
@@ -162,6 +163,10 @@ if(isset($_GET['from']))
 	// echo $productJSON;
   setcookie("url",$_COOKIE["url"].",".$_SERVER['REQUEST_URI'],time()+60*60);
   setcookie("product",$_COOKIE["product"]."; $productJSON",time()+60*60);
+
+
+  include 'getReview.php';
+  $ratings = getReviews($id,$from);
 // }
 ?>
 <!DOCTYPE HTML>
@@ -213,8 +218,12 @@ if(isset($_GET['from']))
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<link rel="stylesheet" href="css/StarRating.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+	
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -331,14 +340,25 @@ if(isset($_GET['from']))
 										echo '<p class="price">';
 											echo '<span>$'."{$product[0]['price']}".'</span> ';
 											echo '<span class="rate text-right">';
+											$avgRating = $ratings['avgRating'] > 5 ? 5: $ratings['avgRating'];
+											$intAvgPart = floor( $avgRating ) ;
+											$fractionAvg = $avgRating  - $intAvgPart;
+											$fullStarAvg = $intAvgPart;
+											$halfStarAvg = $fractionAvg>0?1:0;
+											$noStarAvg = 5 - $fullStarAvg - $halfStarAvg;
+											for($i=0; $i< $fullStarAvg ; $i++ ){ 
 												echo '<i class="icon-star-full"></i>';
-												echo '<i class="icon-star-full"></i>';
-												echo '<i class="icon-star-full"></i>';
-												echo '<i class="icon-star-full"></i>';
+											}
+											for($i=0; $i< $halfStarAvg ; $i++ ){ 
 												echo '<i class="icon-star-half"></i>';
-												echo '(74 Rating)';
-												echo '</span>';
-												echo '</p>';
+											}
+											for($i=0; $i< $noStarAvg ; $i++ ){ 
+												echo '<i class="icon-star-empty"></i>';
+											}
+												
+											echo '('.$ratings['totalRatings'].' Ratings)';
+											echo '</span>';
+											echo '</p>';
 										echo '<p>'."{$product[0]['description']}".'</p>';
 										// echo '<div class="color-wrap">';
 										// echo '<p class="color-desc">';
@@ -417,29 +437,43 @@ if(isset($_GET['from']))
 								   <div id="review" class="tab-pane fade in active">
 								   	<div class="row">
 								   		<div class="col-md-7">
-											<h3><?php echo sizeof($reviews)?> Reviews</h3>
+											<h3><?php echo sizeof($ratings["ratings"])?> Reviews</h3>
 											<?php
-												foreach($reviews as $review)
+												foreach($ratings["ratings"] as $review)
 												{
+													$review['rating'] = $review['rating'] > 5 ? 5: $review['rating'];
+													$intpart = floor( $review['rating'] ) ;
+													$fraction = $review['rating']  - $intpart;
+													$fullStar = $intpart;
+													$halfStar = $fraction>0?1:0;
+													$noStar = 5 - $fullStar - $halfStar;
 											?>
 								   			<div class="review">
 										   		<div class="user-img" style="background-image: url(images/person2.jpg)"></div>
 										   		<div class="desc">
 										   			<h4>
-										   				<span class="text-left"><?php echo "{$review['username']}"?></span>
+										   				<span class="text-left"><?php echo ($review['firstname']." ".$review['lastname']);?></span>
 										   				<span class="text-right">14 March 2018</span>
 										   			</h4>
 										   			<p class="star">
-										   				<span>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-half"></i>
-										   					<i class="icon-star-empty"></i>
+													   <span>
+															<?php 
+													   			for($i=0; $i< $fullStar ; $i++ ){ ?>
+														   			<i class="icon-star-full"></i>
+													   		<? } ?>
+															<?php 
+													   			for($i=0; $i< $halfStar ; $i++ ){ ?>
+														   			<i class="icon-star-half"></i>
+													   		<? } ?>
+															<?php 
+													   			for($i=0; $i< $noStar ; $i++ ){ ?>
+														   			<i class="icon-star-empty"></i>
+													   		<? } ?>
+										   				
 									   					</span>
 									   					<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
 										   			</p>
-										   			<p><?php echo "{$review['review']}"?></p>
+										   			<p><?php echo "{$review['textReview']}"?></p>
 										   		</div>
 											</div>
 											  <?php 
@@ -451,12 +485,63 @@ if(isset($_GET['from']))
 								   			<div class="rating-wrap">
 												<h3>Give a Review</h3>
 												<div clas="container">
-												<div class="rating">
+												<script>
+												async function postRatingToServer(){
 													
-													<textarea row=5 col=20 style="height: auto;"></textarea>   
 													
-												</div>
-												<a href="" style="font-size:10px; border-radius:0px;" class="btn btn-primary"><i class="icon-pencil"></i> Submit</a>
+													var firstname = document.forms["postReviewForm"]["firstname"].value;
+													var lastname = document.forms["postReviewForm"]["lastname"].value;
+													var productId = document.forms["postReviewForm"]["productId"].value;
+													var from = document.forms["postReviewForm"]["from"].value;
+													var userId = document.forms["postReviewForm"]["userId"].value;
+													var textReview = document.forms["postReviewForm"]["textReview"].value;
+													var rating = document.getElementById("ratingStars").value;
+													console.log({
+														firstname,
+														lastname,
+														productId,
+														from,
+														userId,
+														textReview,
+														rating
+													});
+													let formData = new FormData();
+													formData.append("firstname", firstname);
+													formData.append("lastname", lastname);
+													formData.append("productId", productId);
+													formData.append("from", from);
+													formData.append("userId", userId);
+													formData.append("textReview", textReview);
+													formData.append("rating", rating);
+													var resp = await fetch('http://cmpe272marketplace.ml/market_place_dev_nirbhay/postReview.php', {
+														method: 'POST',
+														body: formData
+													});
+													debugger;
+													console.log({resp});
+													window.location.reload();
+													return false;//to stop redirecting
+												}
+												</script>
+												<form name="postReviewForm" onsubmit="return postRatingToServer()" action="http://cmpe272marketplace.ml/market_place_dev_nirbhay/product-detail.php?id=<?php echo $id?>&from=<?php echo $from?>">
+													<?php
+														$userId = $_SESSION['SESS_USER_ID'];
+														$firstname = $_SESSION['SESS_USER_FNAME'];
+														$lastname = $_SESSION['SESS_USER_LNAME'];
+													?>
+													<div name="reviewContainer" class="rating">
+														<x-star-rating id="ratingStars" name="ratingStars" value="0" number="5"></x-star-rating>
+														<script src="js/StarRating.js"></script>
+														<input type="hidden" id="productId" name="productId" value="<?php echo $id?>">
+														<input type="hidden" id="from" name="from" value="<?php echo $from?>">
+														<input type="hidden" id="userId" name="userId" value="<?php echo $userId?>">
+														<input type="hidden" id="firstname" name="firstname" value="<?php echo $firstname?>">
+														<input type="hidden" id="lastname" name="lastname" value="<?php echo $lastname?>">
+														<textarea name="textReview" id="textReview" row=5 col=20 style="height: auto;"></textarea>   
+														
+													</div>
+													<button type="submit" style="font-size:10px; border-radius:0px;" class="btn btn-primary"><i class="icon-pencil"></i> Submit</button>
+												</form>
 									   			<p class="star">
 									   				<span>
 									   					<i class="icon-star-full"></i>
@@ -464,9 +549,13 @@ if(isset($_GET['from']))
 									   					<i class="icon-star-full"></i>
 									   					<i class="icon-star-full"></i>
 									   					<i class="icon-star-full"></i>
-									   					(98%)
+
+														   <?php 
+														   $perc = $ratings['totalRatings']>0 ?($ratings["fiveStars"]/$ratings['totalRatings']):0;
+														   $perc *= 100;
+														   echo "(".$perc."%)" ?>
 								   					</span>
-								   					<span>20 Reviews</span>
+								   					<span><?php echo $ratings["fiveStars"] ?> Reviews</span>
 									   			</p>
 									   			<p class="star">
 									   				<span>
@@ -475,9 +564,12 @@ if(isset($_GET['from']))
 									   					<i class="icon-star-full"></i>
 									   					<i class="icon-star-full"></i>
 									   					<i class="icon-star-empty"></i>
-									   					(85%)
+									   					<?php 
+														   $perc = $ratings['totalRatings']>0 ?($ratings["fourStars"]/$ratings['totalRatings']):0;
+														   $perc *= 100;
+														   echo "(".$perc."%)" ?>
 								   					</span>
-								   					<span>10 Reviews</span>
+								   					<span><?php echo $ratings["fourStars"] ?> Reviews</span>
 									   			</p>
 									   			<p class="star">
 									   				<span>
@@ -486,9 +578,12 @@ if(isset($_GET['from']))
 									   					<i class="icon-star-full"></i>
 									   					<i class="icon-star-empty"></i>
 									   					<i class="icon-star-empty"></i>
-									   					(98%)
+									   					<?php 
+														   $perc = $ratings['totalRatings']>0 ?($ratings["threeStars"]/$ratings['totalRatings']):0;
+														   $perc *= 100;
+														   echo "(".$perc."%)" ?>
 								   					</span>
-								   					<span>5 Reviews</span>
+								   					<span><?php echo $ratings["threeStars"] ?> Reviews</span>
 									   			</p>
 									   			<p class="star">
 									   				<span>
@@ -497,9 +592,12 @@ if(isset($_GET['from']))
 									   					<i class="icon-star-empty"></i>
 									   					<i class="icon-star-empty"></i>
 									   					<i class="icon-star-empty"></i>
-									   					(98%)
+									   					<?php 
+														   $perc = $ratings['totalRatings']>0 ?($ratings["twoStars"]/$ratings['totalRatings']):0;
+														   $perc *= 100;
+														   echo "(".$perc."%)" ?>
 								   					</span>
-								   					<span>0 Reviews</span>
+								   					<span><?php echo $ratings["twoStars"] ?> Reviews</span>
 									   			</p>
 									   			<p class="star">
 									   				<span>
@@ -508,9 +606,12 @@ if(isset($_GET['from']))
 									   					<i class="icon-star-empty"></i>
 									   					<i class="icon-star-empty"></i>
 									   					<i class="icon-star-empty"></i>
-									   					(98%)
+									   					<?php 
+														   $perc = $ratings['totalRatings']>0 ?($ratings["oneStars"]/$ratings['totalRatings']):0;
+														   $perc *= 100;
+														   echo "(".$perc."%)" ?>
 								   					</span>
-								   					<span>0 Reviews</span>
+								   					<span><?php echo $ratings["oneStars"] ?> Reviews</span>
 									   			</p>
 									   		</div>
 								   		</div>
