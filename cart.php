@@ -1,5 +1,39 @@
 <?php
 require 'auth.php';
+
+class Products{
+    public $id="";
+    public $from="";
+    public $name="";
+    public $url="";
+    public $price="";
+}
+
+if(isset($_GET['from']) && isset($_GET['id']))
+{
+    $cookie_name = "products";
+    if(!isset($_COOKIE[$cookie_name])) {
+        $products=array();
+        $product=new Products();
+        $product->id=$_GET['id'];
+        $product->name=$_GET['name'];
+        $product->url=$_GET['url'];
+        $product->from=$_GET['from'];
+        $product->from=$_GET['price'];
+        $products[0]=$product;
+        setcookie($cookie_name, json_encode($products), time() + (86400 * 30), "/");
+    } else {
+        $products = json_decode($_COOKIE[$cookie_name]);
+        $product=new Products();
+        $product->id=$_GET['id'];
+        $product->name=$_GET['name'];
+        $product->url=$_GET['url'];
+        $product->from=$_GET['from'];
+        $product->from=$_GET['price'];
+        array_push($products,$product);
+        setcookie($cookie_name, json_encode($products), time() + (86400 * 30), "/");
+    }
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -143,7 +177,7 @@ require 'auth.php';
 					</div>
 				</div>
 				<div class="row row-pb-md">
-					<div class="col-md-10 col-md-offset-1">
+					<!--<div class="col-md-10 col-md-offset-1">
 						<div class="product-name">
 							<div class="one-forth text-center">
 								<span>Product Details</span>
@@ -249,7 +283,40 @@ require 'auth.php';
 									<a href="#" class="closed"></a>
 								</div>
 							</div>
-						</div>
+						</div>-->
+						<?php
+						foreach($products as $e){
+                           echo '<div class="product-cart">';
+                                echo '<div class="one-forth">';
+                                    echo '<div class="product-img" style="background-image: url('."{$e->url}".');">';
+                                    echo '</div>';
+                                    echo '<div class="display-tc">';
+                                        echo '<h3>'."{$e->name}".'</h3>';
+                                    echo '</div>';
+                                echo '</div>';
+                                echo '<div class="one-eight text-center">';
+                                    echo '<div class="display-tc">';
+                                        echo '<span class="price">$68.00</span>';
+                                    echo '</div>';
+                                echo '</div>';
+                                echo '<div class="one-eight text-center">';
+                                    echo '<div class="display-tc">';
+                                        echo '<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">';
+                                    echo '</div>';
+                                echo '</div>';
+                                echo '<div class="one-eight text-center">';
+                                    echo '<div class="display-tc">';
+                                        echo '<span class="price">'."{$e->price}".'</span>';
+                                    echo '</div>';
+                                echo '</div>';
+                                /* echo '<div class="one-eight text-center">';
+                                    echo '<div class="display-tc">';
+                                        echo '<a href="#" class="closed"></a>';
+                                    echo '</div>';
+                                echo '</div>'; */
+                            echo '</div>';
+                        }
+                        ?>
 					</div>
 				</div>
 				<div class="row">
