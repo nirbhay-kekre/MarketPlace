@@ -246,7 +246,7 @@ if(isset($_GET['from']))
 							<ul>
 								<li><a href="index.php">Home</a></li>
 								<li class="has-dropdown">
-									<a href="shop.php?name=all">Shop</a>
+									<a href="shop.php?from=all">Shop</a>
 									<ul class="dropdown">
 										<li class="active"><a href="product-detail.php?id=1&from=akshay">Product Detail</a></li>
 										<li><a href="cart.php">Shipping Cart</a></li>

@@ -4,7 +4,7 @@ function getReviews($productId, $from){
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = 'SELECT firstname, lastname, rating, textReview FROM productReviews where productId="'.$from.'_'.$productId.'"';
+    $sql = 'SELECT firstname, lastname, rating, textReview FROM productReviews where productId="'.$productId.'" AND owner="'.$from.'"';
 
     $ratings = array();
     $ratings["ratings"] = array();
