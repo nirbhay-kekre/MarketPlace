@@ -35,6 +35,22 @@ if(isset($_GET['from']) && isset($_GET['id']))
         setcookie($cookie_name, json_encode($products), time() + (86400 * 30), "/");
     }
 }
+if(isset($_GET['removeId'])){
+    $cookie_name = "products";
+    $products = json_decode($_COOKIE[$cookie_name]);
+    $newArr=array();
+    $isRemoved = false;
+    foreach ($products as $p){
+        if($isRemoved){
+            array_push($newArr,$p);
+        }elseif(!($p->id==$_GET['removeId'] && $p->from==$_GET['removeFrom'])){
+            array_push($newArr,$p);
+            $isRemoved=true;
+        }
+    }
+    $products=$newArr;
+    setcookie($cookie_name, json_encode($newArr), time() + (86400 * 30), "/");
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -265,11 +281,11 @@ if(isset($_GET['from']) && isset($_GET['id']))
                                         echo '<span class="price">$'."{$e->price}".'</span>';
                                     echo '</div>';
                                 echo '</div>';
-                                /* echo '<div class="one-eight text-center">';
+                                echo '<div class="one-eight text-center">';
                                     echo '<div class="display-tc">';
-                                        echo '<a href="#" class="closed"></a>';
+                                        echo '<a href="cart.php?removeId='."{$e->id}".'&removeFrom='."{$e->from}".'" class="closed"></a>';
                                     echo '</div>';
-                                echo '</div>'; */
+                                echo '</div>';
                             echo '</div>';
                             $subTotal = $subTotal + $e->price;
                         }
@@ -306,7 +322,11 @@ if(isset($_GET['from']) && isset($_GET['id']))
 										<div class="grand-total">
 											<p><span><strong>Total:</strong></span> <span>
 											 <?php
-											echo $subTotal-45;
+                                             $total = 0;
+                                             if($subTotal > 0){
+                                                 $total = $subTotal-45;
+                                             }
+											echo $total;
     										?>
 											</span></p>
 										</div>
@@ -336,7 +356,7 @@ if(isset($_GET['from']) && isset($_GET['id']))
                                               return actions.payment.create({
                                                 transactions: [{
                                                   amount: {
-                                                    total: '<?php echo $subTotal-45?>',
+                                                    total: '<?php echo $total?>',
                                                     currency: 'USD'
                                                   }
                                                 }]
