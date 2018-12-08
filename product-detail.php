@@ -1,12 +1,24 @@
 <?php 
 session_start();
 require 'auth.php';
+$id = $_GET['id'];
+$from = $_GET['from'];
+
+  if($id && $from){
+	  $recentFive = $_COOKIE["recentFive"];
+	  if($recentFive ==null  || !$recentFive){
+		  $recentFive=array();
+	  } else{
+		  $recentFive=json_decode($recentFive);
+	  }
+	  array_push ($recentFive, array("id" => $id, "from" => $from));
+	  $recentFive = array_slice($recentFive, -5,5);
+  }
+	setcookie("recentFive",json_encode($recentFive) , time() + (30 * 24 * 60 * 60), "/", "sinnonyms.ml");
+	
 if(isset($_GET['from']))
 {
-
 	$curl = curl_init();
-	$id = $_GET['id'];
-	$from = $_GET['from'];
 	// echo $from;
 
 	function getProductsFromAkshay() {
@@ -353,7 +365,7 @@ if(isset($_GET['from']))
 										echo '</div>';
 										echo '</div>';
 										echo '</div>';
-                                        echo '<p><a href="cart.php?from='."{$product[0]['from']}".'&id='."{$product[0]['id']}".'&url='."{$product[0]['URL']}".'&name='."{$product[0]['name']}".'&price='."{$product[0]['price']}".'" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>';
+										echo '<p><a href="cart.php" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>';
 										echo '</div>';
 										echo '</div>';
 										echo '</div>';
