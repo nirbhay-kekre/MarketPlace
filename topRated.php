@@ -54,8 +54,8 @@
         $conn->close();
         return $topRated;
     }
-    extract($_GET);
-    http_response_code(200);
-    header("Content-Type: application/json");
-    echo json_encode(getTopRatedMarketPlace());
+    // extract($_GET);
+    // http_response_code(200);
+    // header("Content-Type: application/json");
+    // echo json_encode(getIndividualTopRated($from));
 ?>

@@ -6,9 +6,14 @@
 	include 'rooturl.php';
 	$rooturl = getRootURL();
 
-	include 'topRated.php';
-	$topratedarray = getTopRatedMarketPlace();
-	// print_r($topratedarray);
+    include 'topRated.php';
+    
+    $topratedarray = getTopRatedMarketPlace();
+
+    $topratedakshay = getIndividualTopRated('akshay');
+    $topratednirbhay = getIndividualTopRated('nirbhay');
+    $topratedtapan = getIndividualTopRated('tapan');
+    $topratedyash = getIndividualTopRated('yash');
 
 	$appendstring ="";
 
@@ -24,12 +29,14 @@
 	}
 
 	$idarray1 = getappendstring($topratedarray['akshay']);
-
 	$idarray2 = getappendstring($topratedarray['nirbhay']);
-
 	$idarray3 = getappendstring($topratedarray['tapan']);
-
-	$idarray4 = getappendstring($topratedarray['yash']);
+    $idarray4 = getappendstring($topratedarray['yash']);
+    
+    $idarray5 = getappendstring($topratedakshay['akshay']);
+    $idarray6 = getappendstring($topratednirbhay['nirbhay']);
+    $idarray7 = getappendstring($topratedtapan['tapan']);
+    $idarray8 = getappendstring($topratedyash['yash']);
 
 	function getProductsFromAkshay($idarray1) 
 	{
@@ -45,7 +52,6 @@
 			$resp = curl_exec($curl);
 
 			$product = json_decode($resp, true);
-			// print_r($product);
 			return $product;
 		}
 		else
@@ -65,7 +71,6 @@
 			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
 		));
 		$resp = curl_exec($curl);
-		// echo $resp;
 		$product = json_decode($resp, true);
 		return $product;
 		}
@@ -116,7 +121,13 @@
 
 	// $products = getProductsFromAkshay($idarray1);
 
-	$products = array_merge(getProductsFromAkshay($idarray1), getProductsFromNirbhay($idarray2), getProductsFromYash($idarray4));
+    $products = array_merge(getProductsFromAkshay($idarray1), getProductsFromNirbhay($idarray2), getProductsFromYash($idarray4));
+    
+    $akshayproducts = getProductsFromAkshay($idarray5);
+    $nirbhayproducts = getProductsFromNirbhay($idarray6);
+    $tapanproducts = getProductsFromTapan($idarray7);
+    $yashproducts = getProductsFromYash($idarray8);
+
 	// echo print_r($products);
     $cookieString = substr($_COOKIE["product"],1);
         $cookieArray = explode(";", $cookieString);
@@ -282,90 +293,12 @@
 				</div>
 			</div>
 		</nav>
-		<aside id="colorlib-hero">
-			<div class="flexslider">
-				<ul class="slides">
-			   	<li style="background-image: url(http://akshayjaiswal.me/images/corsair2banner.jpg);">
-			   		<div class="overlay"></div>
-			   		<div class="container-fluid">
-			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
-				   				<div class="slider-text-inner">
-				   					<div class="desc">
-					   					<h1 class="head-1">Mechanical</h1>
-					   					<h2 class="head-2">Keyboards</h2>
-					   					<h2 class="head-3">Collection</h2>
-					   					<p class="category"><span>New stylish keyboards &amp; Accessories</span></p>
-					   					<p><a href=<?php echo '"'.$rooturl.'/shop.php?from=akshay"'; ?> class="btn btn-primary">Shop Keyboards</a></p>
-				   					</div>
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-				<li style="background-image: url(http://nirbhaykekre.com/img/product/harryPotter1.jpg);">
-			   		<div class="overlay"></div>
-			   		<div class="container-fluid">
-			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
-				   				<div class="slider-text-inner">
-				   					<div class="desc">
-					   					<h1 class="head-1">Amazing</h1>
-					   					<h2 class="head-2">Books</h2>
-					   					<h2 class="head-3">Collection</h2>
-					   					<p class="category"><span>New entries in GOT series &amp; More</span></p>
-					   					<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
-				   					</div>
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-			   	<li style="background-image: url(http://www.tapanhere.com/wp-content/uploads/2017/04/home-2.jpg);">
-			   		<div class="overlay"></div>
-			   		<div class="container-fluid">
-			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
-				   				<div class="slider-text-inner">
-				   					<div class="desc">
-					   					<h1 class="head-1">Huge</h1>
-					   					<h2 class="head-2">Sale</h2>
-					   					<h2 class="head-3">45% off</h2>
-					   					<p class="category"><span>New stylish shirts, pants &amp; Accessories</span></p>
-					   					<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
-				   					</div>
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-			   	<li style="background-image: url(http://yashmahajan.com/img/bg-img/bg-1.jpg);">
-			   		<div class="overlay"></div>
-			   		<div class="container-fluid">
-			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 col-md-push-3 col-sm-12 col-xs-12 slider-text">
-				   				<div class="slider-text-inner">
-				   					<div class="desc">
-					   					<h1 class="head-1">New</h1>
-					   					<h2 class="head-2">Arrival</h2>
-					   					<h2 class="head-3">up to 30% off</h2>
-					   					<p class="category"><span>New stylish shirts, pants &amp; Accessories</span></p>
-					   					<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
-				   					</div>
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-			  	</ul>
-		  	</div>
-		</aside>
 
 		<div class="colorlib-shop">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
-						<h2><span>Top rated</span></h2>
+						<h2>Top rated on Marketplace</h2>
 						<p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 					</div>
 				</div>
@@ -401,6 +334,165 @@
 		</div>
 
 
+		<div class="colorlib-shop">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
+						<h2>Top rated on Akshay</h2>
+						<p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					</div>
+				</div>
+				<div class="row">
+            <?php
+                foreach($akshayproducts as $product)
+                {
+            ?>
+					<div class="col-md-3 text-center">
+						<div class="product-entry">
+							<div class="product-img" style="background-image: url(<?php echo "{$product['URL']}"; ?>);">
+								<p class="tag"><span class="new">New</span></p>
+								<div class="cart">
+									<p>
+										<span class="addtocart"><a href=<?php echo 'cart.php?from='."{$product['from']}".'&id='."{$product['id']}".'&url='."{$product['URL']}".'&name='."{$product['name']}".'&price='."{$product['price']}"?>><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
+										<span><a href="#"><i class="icon-heart3"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
+									</p>
+								</div>
+							</div>
+							<div class="desc">
+								<h3><a href=<?php echo 'product-detail.php?id='."{$product['id']}".'&from='."{$product['from']}"?>><?php echo "{$product['name']}"; ?></a></h3>
+								<p class="price"><span>$<?php echo "{$product['price']}"; ?></span></p>
+							</div>
+						</div>
+                    </div>
+            <?php
+                }
+            ?>
+				</div>
+			</div>
+		</div>
+
+
+        <div class="colorlib-shop">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
+						<h2>Top rated on Nirbhay</h2>
+						<p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					</div>
+				</div>
+				<div class="row">
+            <?php
+                foreach($nirbhayproducts as $product)
+                {
+            ?>
+					<div class="col-md-3 text-center">
+						<div class="product-entry">
+							<div class="product-img" style="background-image: url(<?php echo "{$product['URL']}"; ?>);">
+								<p class="tag"><span class="new">New</span></p>
+								<div class="cart">
+									<p>
+										<span class="addtocart"><a href=<?php echo 'cart.php?from='."{$product['from']}".'&id='."{$product['id']}".'&url='."{$product['URL']}".'&name='."{$product['name']}".'&price='."{$product['price']}"?>><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
+										<span><a href="#"><i class="icon-heart3"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
+									</p>
+								</div>
+							</div>
+							<div class="desc">
+								<h3><a href=<?php echo 'product-detail.php?id='."{$product['id']}".'&from='."{$product['from']}"?>><?php echo "{$product['name']}"; ?></a></h3>
+								<p class="price"><span>$<?php echo "{$product['price']}"; ?></span></p>
+							</div>
+						</div>
+                    </div>
+            <?php
+                }
+            ?>
+				</div>
+			</div>
+		</div>
+
+
+        <div class="colorlib-shop">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
+						<h2>Top rated on Tapan</h2>
+						<p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					</div>
+				</div>
+				<div class="row">
+            <?php
+                foreach($tapanproducts as $product)
+                {
+            ?>
+					<div class="col-md-3 text-center">
+						<div class="product-entry">
+							<div class="product-img" style="background-image: url(<?php echo "{$product['URL']}"; ?>);">
+								<p class="tag"><span class="new">New</span></p>
+								<div class="cart">
+									<p>
+										<span class="addtocart"><a href=<?php echo 'cart.php?from='."{$product['from']}".'&id='."{$product['id']}".'&url='."{$product['URL']}".'&name='."{$product['name']}".'&price='."{$product['price']}"?>><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
+										<span><a href="#"><i class="icon-heart3"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
+									</p>
+								</div>
+							</div>
+							<div class="desc">
+								<h3><a href=<?php echo 'product-detail.php?id='."{$product['id']}".'&from='."{$product['from']}"?>><?php echo "{$product['name']}"; ?></a></h3>
+								<p class="price"><span>$<?php echo "{$product['price']}"; ?></span></p>
+							</div>
+						</div>
+                    </div>
+            <?php
+                }
+            ?>
+				</div>
+			</div>
+		</div>
+
+
+        <div class="colorlib-shop">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
+						<h2>Top rated on Yash</h2>
+						<p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					</div>
+				</div>
+				<div class="row">
+            <?php
+                foreach($yashproducts as $product)
+                {
+            ?>
+					<div class="col-md-3 text-center">
+						<div class="product-entry">
+							<div class="product-img" style="background-image: url(<?php echo "{$product['URL']}"; ?>);">
+								<p class="tag"><span class="new">New</span></p>
+								<div class="cart">
+									<p>
+										<span class="addtocart"><a href=<?php echo 'cart.php?from='."{$product['from']}".'&id='."{$product['id']}".'&url='."{$product['URL']}".'&name='."{$product['name']}".'&price='."{$product['price']}"?>><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
+										<span><a href="#"><i class="icon-heart3"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
+									</p>
+								</div>
+							</div>
+							<div class="desc">
+								<h3><a href=<?php echo 'product-detail.php?id='."{$product['id']}".'&from='."{$product['from']}"?>><?php echo "{$product['name']}"; ?></a></h3>
+								<p class="price"><span>$<?php echo "{$product['price']}"; ?></span></p>
+							</div>
+						</div>
+                    </div>
+            <?php
+                }
+            ?>
+				</div>
+			</div>
+		</div>
+
 		<div id="colorlib-intro" class="colorlib-intro" style="background-image: url(images/cover-img-1.jpg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
@@ -430,6 +522,48 @@
 			</div>
 		</div>
 
+		<div class="colorlib-shop">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
+						<h2><span>Top Rated on Marketplace</span></h2>
+						<p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					</div>
+				</div>
+				<div class="row">
+				<?php
+					echo '<div class="col-md-10 col-md-push-2">';
+						echo '<div class="row row-pb-lg">';
+						// echo '<pre>'; print_r($products); echo '</pre>';
+						foreach($products as $product)
+						{
+							
+							echo '<div class="col-md-4 text-center">';
+						
+								echo '<div class="product-entry">';
+									echo '<div class="product-img" style="background-image: url('."{$product['URL']}".');">';
+									echo '<p class="tag"><span class="new">New</span></p>';
+									echo '<div class="cart">';
+										echo '<p>';
+											echo '<span class="addtocart"><a href="cart.php?from='."{$product['from']}".'&id='."{$product['id']}".'&url='."{$product['URL']}".'&name='."{$product['name']}".'&price='."{$product['price']}".'"><i class="icon-shopping-cart"></i></a></span>';
+											echo '<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> ';
+											echo '<span><a href="#"><i class="icon-heart3"></i></a></span>';
+											echo '<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>';
+										echo '</p>';	
+										echo '</div>';
+									echo '</div>';
+									echo '<div class="desc">';
+										echo '<h3><a href="product-detail.php?id='."{$product['id']}".'&from='."{$product['from']}".'">'."{$product['name']}"."{$product['price']}".'</a></h3>';
+										echo '<p class="price"><span>$'."{$product["price"]}".'</span></p>';
+									echo '</div>';
+							echo '</div>';
+							echo '</div>';
+						}
+						echo '</div>';
+					?>
+				</div>
+			</div>
+		</div>
 
 		<div id="colorlib-testimony" class="colorlib-light-grey">
 			<div class="container">
