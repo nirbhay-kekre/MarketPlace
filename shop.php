@@ -117,6 +117,16 @@ if(isset($_GET['from']))
 		$products = array_merge(getProductsFromAkshay(), getProductsFromNirbhay(), getProductsFromTapan(), getProductsFromYash());
 	}
 
+	if(isset($_GET['search'])){
+		$query = $_GET['search'] ;
+		$searchedProduct = array();
+		foreach($products as $prod){
+			if (stripos($prod['name'], $query) !== false){
+				array_push($searchedProduct, $prod); 
+			}
+		}
+		$products = $searchedProduct;
+	}
 }
 ?>
 
@@ -239,10 +249,21 @@ if(isset($_GET['from']))
 			   	</li>
 			  	</ul>
 		  	</div>
-		</aside>
-
+		</aside>						
 		<div class="colorlib-shop">
 			<div class="container">
+				<div class="row" style="padding-bottom: 50px;text-align:center;">
+					<script>
+						function search() {
+							var query = document.getElementById("search").value;
+							var from = localStorage.getItem("from") ? localStorage.getItem("from") : 'all';
+							window.location.replace("http://cmpe272marketplace.ml/market_place_dev_yash/shop.php?from=" + from + "&search=" + query );
+						}
+					</script>
+					<input type="text" id="search" placeholder="Search Products" 
+						style="width: 60%;border: 2px solid #cccccc;border-radius: 5px;padding: 20px;font-size: large;"/>
+						<button class="btn btn-primary" style="margin-left:10px" onclick="search()">Search</button>
+				</div>
 				<div class="row">
 				<?php
 						echo '<div class="col-md-10 col-md-push-2">';
@@ -291,13 +312,20 @@ if(isset($_GET['from']))
 								<h2>Filter</h2>
 								<div class="color-wrap">
 									<p class="color-desc">
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=all" ><span class="new">ALL</span></a><br>
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=akshay" ><span class="new">Akshay</span></a><br>
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=nirbhay" ><span class="new">Nirbhay</span></a><br>
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=tapan" ><span class="new">Tapan</span></a><br>
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=yash" ><span class="new">Yash</span></a><br>
+										<a class="new" href="http://cmpe272marketplace.ml/market_place_dev_yash/shop.php?from=all" onclick="getProducts('all')"> All </a><br>
+										<a class="new" href="http://cmpe272marketplace.ml/market_place_dev_yash/shop.php?from=akshay" onclick="getProducts('akshay')"> Akshay </a><br>
+										<a class="new" href="http://cmpe272marketplace.ml/market_place_dev_yash/shop.php?from=nirbhay" onclick="getProducts('nirbhay')"> Nirbhay </a><br>
+										<a class="new" href="http://cmpe272marketplace.ml/market_place_dev_yash/shop.php?from=tapan" onclick="getProducts('tapan')"> Tapan </a><br>
+										<a class="new" href="http://cmpe272marketplace.ml/market_place_dev_yash/shop.php?from=yash" onclick="getProducts('yash')"> Yash </a><br>
 										<!-- <a href="#" class="color color-5"></a> -->
 									</p>
+									<script>
+										function getProducts(from){
+											alert(from);
+											localStorage.setItem("from", from);
+											return true;
+										}
+									</script>
 								</div>
 							</div>
 							<!-- <div class="side">
