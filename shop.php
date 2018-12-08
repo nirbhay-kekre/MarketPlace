@@ -261,7 +261,7 @@ if(isset($_GET['from']))
 						function search() {
 							var query = document.getElementById("search").value;
 							var from = localStorage.getItem("from") ? localStorage.getItem("from") : 'all';
-							window.location.replace(<?php echo '"'.$rooturl.'/shop.php?from="'?> + from + "&search=" + query);
+							window.location.replace( <?php echo '"'.$rooturl.'/shop.php?from="'?> + from + "&search=" + query );
 						}
 					</script>
 					<input type="text" id="search" placeholder="Search Products" 

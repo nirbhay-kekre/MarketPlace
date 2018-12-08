@@ -10,6 +10,8 @@
         $topRated["tapan"] = array();
         $topRated["yash"] = array();
         $topRated["nirbhay"] = array();
+        $topRated["topRated"] = array();
+
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             // output data of each row
@@ -17,8 +19,10 @@
             // echo " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
                 $top = array(
                     "productId" => $row["productId"],
-                    "avgRating" => $row["avgRating"]
+                    "avgRating" => $row["avgRating"],
+                    "from" => $row["owner"]
                 );
+                array_push($topRated["topRated"], $top);
                 array_push($topRated[$row["owner"]], $top);
             }
         }
@@ -53,5 +57,5 @@
     extract($_GET);
     http_response_code(200);
     header("Content-Type: application/json");
-    echo json_encode(getIndividualTopRated($from));
+    echo json_encode(getTopRatedMarketPlace());
 ?>

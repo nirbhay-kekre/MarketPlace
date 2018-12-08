@@ -390,7 +390,7 @@ if(isset($_GET['from']))
 										echo '</div>';
 										echo '</div>';
 										echo '</div>';
-										echo '<p><a href="cart.php" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>';
+                                        echo '<p><a href="cart.php?from='."{$product[0]['from']}".'&id='."{$product[0]['id']}".'&url='."{$product[0]['URL']}".'&name='."{$product[0]['name']}".'&price='."{$product[0]['price']}".'" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>';
 										echo '</div>';
 										echo '</div>';
 										echo '</div>';
