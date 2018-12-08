@@ -13,7 +13,7 @@ if(isset($_GET['from']))
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id='."$id",
+			CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id[]='."$id",
 			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
 		));
 		$resp = curl_exec($curl);
@@ -25,7 +25,7 @@ if(isset($_GET['from']))
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://nirbhaykekre.com/book.php?id='."$id",
+			CURLOPT_URL => 'http://nirbhaykekre.com/book.php?id[]='."$id",
 			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
 		));
 		$resp = curl_exec($curl);
@@ -37,7 +37,7 @@ if(isset($_GET['from']))
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://www.tapanhere.com/wp-json/products/productsinfo?id='."$id",
+			CURLOPT_URL => 'http://www.tapanhere.com/wp-json/products/productsinfo?id[]='."$id",
 			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
 		));
 		$resp = curl_exec($curl);
@@ -48,7 +48,7 @@ if(isset($_GET['from']))
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://yashmahajan.com/getProductsById.php?id='."$id",
+			CURLOPT_URL => 'http://yashmahajan.com/getProductsById.php?id[]='."$id",
 			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
 		));
 		$resp = curl_exec($curl);
@@ -60,7 +60,7 @@ if(isset($_GET['from']))
 	{
 		curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id='."$id",
+			CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id[]='."$id",
 			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
 		));
 		$resp = curl_exec($curl);
@@ -71,7 +71,7 @@ if(isset($_GET['from']))
 	{
 		curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://nirbhaykekre.com/book.php?id='."$id",
+			CURLOPT_URL => 'http://nirbhaykekre.com/book.php?id[]='."$id",
 			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
 		));
 		$resp = curl_exec($curl);
@@ -82,7 +82,7 @@ if(isset($_GET['from']))
 	{
 		curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://www.tapanhere.com/wp-json/products/productsinfo?id='."$id",
+			CURLOPT_URL => 'http://www.tapanhere.com/wp-json/products/productsinfo?id[]='."$id",
 			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
 		));
 		$resp = curl_exec($curl);
@@ -93,7 +93,7 @@ if(isset($_GET['from']))
 	{
 		curl_setopt_array($curl, array(
 			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://yashmahajan.com/getProductsById.php?id='."$id",
+			CURLOPT_URL => 'http://yashmahajan.com/getProductsById.php?id[]='."$id",
 			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
 		));
 		$resp = curl_exec($curl);
@@ -141,18 +141,6 @@ if(isset($_GET['from']))
 	}
 	$productJSON = json_encode($product[0]);
 
-
-	if($_GET['from'] == "akshay")
-	{
-		curl_setopt_array($curl, array(
-			CURLOPT_RETURNTRANSFER => 1,
-			CURLOPT_URL => 'http://akshayjaiswal.me/getreviewbyproductid.php?id='."$id",
-			CURLOPT_USERAGENT => 'Codular Sample cURL Request'
-		));
-		$reviewresp = curl_exec($curl);
-		$reviews = json_decode($reviewresp, true);
-		// echo "product : ".$product;
-	}
 	if (curl_error($curl)) 
 	{
 		$error_msg = curl_error($curl);
@@ -167,6 +155,9 @@ if(isset($_GET['from']))
 
   include 'getReview.php';
   $ratings = getReviews($id,$from);
+
+  include 'rooturl.php';
+  $rooturl = getRootURL();
 // }
 ?>
 <!DOCTYPE HTML>
@@ -219,7 +210,7 @@ if(isset($_GET['from']))
 	<link rel="stylesheet" href="css/style.css">
 
 	<link rel="stylesheet" href="css/StarRating.css">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
@@ -513,7 +504,7 @@ if(isset($_GET['from']))
 													formData.append("userId", userId);
 													formData.append("textReview", textReview);
 													formData.append("rating", rating);
-													var resp = await fetch('http://cmpe272marketplace.ml/market_place_dev_nirbhay/postReview.php', {
+													var resp = await fetch(<?php echo "'".$rooturl."/postReview.php'" ?>, {
 														method: 'POST',
 														body: formData
 													});
@@ -523,7 +514,7 @@ if(isset($_GET['from']))
 													return false;//to stop redirecting
 												}
 												</script>
-												<form name="postReviewForm" onsubmit="return postRatingToServer()" action="http://cmpe272marketplace.ml/market_place_dev_nirbhay/product-detail.php?id=<?php echo $id?>&from=<?php echo $from?>">
+												<form name="postReviewForm" onsubmit="return postRatingToServer()" action="<?php echo $rooturl?>/product-detail.php?id=<?php echo $id?>&from=<?php echo $from?>">
 													<?php
 														$userId = $_SESSION['SESS_USER_ID'];
 														$firstname = $_SESSION['SESS_USER_FNAME'];
