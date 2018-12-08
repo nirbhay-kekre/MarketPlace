@@ -261,18 +261,6 @@ if(isset($_GET['from']))
 							}
 							echo '</div>';
 					?>
-						<div class="row">
-							<div class="col-md-12">
-								<ul class="pagination">
-									<li class="disabled"><a href="#">&laquo;</a></li>
-									<li class="active"><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#">&raquo;</a></li>
-								</ul>
-							</div>
-						</div>
 					</div>
 					<div class="col-md-2 col-md-pull-10">
 						<div class="sidebar">
