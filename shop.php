@@ -1,5 +1,9 @@
 <?php 
 require 'auth.php';
+
+include 'rooturl.php';
+$rooturl = getRootURL();
+
 if(isset($_GET['from']))
 {
 	function getProductsFromAkshay() {
@@ -256,7 +260,7 @@ if(isset($_GET['from']))
 										echo '<p class="tag"><span class="new">New</span></p>';
 										echo '<div class="cart">';
 											echo '<p>';
-												echo '<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span>'; 
+												echo '<span class="addtocart"><a href="cart.php?from='."{$product['from']}".'&id='."{$product['id']}".'&url='."{$product['URL']}".'&name='."{$product['name']}".'&price='."{$product['price']}".'"><i class="icon-shopping-cart"></i></a></span>';
 												echo '<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> ';
 												echo '<span><a href="#"><i class="icon-heart3"></i></a></span>';
 												echo '<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>';
@@ -264,7 +268,7 @@ if(isset($_GET['from']))
 											echo '</div>';
 										echo '</div>';
 										echo '<div class="desc">';
-											echo '<h3><a href="product-detail.php?id='."{$product['id']}".'&from='."{$product['from']}".'">'."{$product['name']}".'</a></h3>';
+											echo '<h3><a href="product-detail.php?id='."{$product['id']}".'&from='."{$product['from']}".'">'."{$product['name']}"."{$product['price']}".'</a></h3>';
 											echo '<p class="price"><span>$'."{$product["price"]}".'</span></p>';
 										echo '</div>';
 								echo '</div>';
@@ -291,11 +295,11 @@ if(isset($_GET['from']))
 								<h2>Filter</h2>
 								<div class="color-wrap">
 									<p class="color-desc">
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=all" ><span class="new">ALL</span></a><br>
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=akshay" ><span class="new">Akshay</span></a><br>
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=nirbhay" ><span class="new">Nirbhay</span></a><br>
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=tapan" ><span class="new">Tapan</span></a><br>
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=yash" ><span class="new">Yash</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=all"'; ?> ><span class="new">ALL</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=akshay"'; ?> ><span class="new">Akshay</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=nirbhay"'; ?>><span class="new">Nirbhay</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=tapan"'; ?>><span class="new">Tapan</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=yash"'; ?> ><span class="new">Yash</span></a><br>
 										<!-- <a href="#" class="color color-5"></a> -->
 									</p>
 								</div>
