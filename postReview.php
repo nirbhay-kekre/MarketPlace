@@ -5,14 +5,14 @@ function postReview($userId, $firstname, $lastname, $productId, $from, $rating=0
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = 'SELECT firstname, lastname, rating, textReview FROM productReviews where productId="'.$from.'_'.$productId.'" AND userID="'.$userId.'"';
+    $sql = 'SELECT firstname, lastname, rating, textReview FROM productReviews where productId="'.$productId.'" AND owner="'.$from.'" AND userID="'.$userId.'"';
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $sql = 'UPDATE  productReviews SET  
-                 rating = "'.$rating.'", textReview = "'.$textReview.'" where productId="'.$from.'_'.$productId.'" AND userID="'.$userId.'"';
+                 rating = "'.$rating.'", textReview = "'.$textReview.'" where productId="'.$productId.'" AND owner="'.$from.'" AND userID="'.$userId.'"';
     } else {
-        $sql = 'INSERT INTO  productReviews (userId, productId, firstname, lastname, rating, textReview) VALUES 
-                ("'.$userId.'", "'.$from.'_'.$productId.'", "'.$firstname.'", "'.$lastname.'", "'.$rating.'", "'.$textReview.'")';
+        $sql = 'INSERT INTO  productReviews (userId, owner, productId, firstname, lastname, rating, textReview) VALUES 
+                ("'.$userId.'", "'.$from.'", "'.$productId.'", "'.$firstname.'", "'.$lastname.'", "'.$rating.'", "'.$textReview.'")';
     }
     $result = $conn->query($sql);
     $conn->close();

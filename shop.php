@@ -1,5 +1,9 @@
 <?php 
 require 'auth.php';
+
+include 'rooturl.php';
+$rooturl = getRootURL();
+
 if(isset($_GET['from']))
 {
 	function getProductsFromAkshay() {
@@ -277,7 +281,7 @@ if(isset($_GET['from']))
 										echo '<p class="tag"><span class="new">New</span></p>';
 										echo '<div class="cart">';
 											echo '<p>';
-												echo '<span class="addtocart"><a href="cart.php"><i class="icon-shopping-cart"></i></a></span>'; 
+												echo '<span class="addtocart"><a href="cart.php?from='."{$product['from']}".'&id='."{$product['id']}".'&url='."{$product['URL']}".'&name='."{$product['name']}".'&price='."{$product['price']}".'"><i class="icon-shopping-cart"></i></a></span>';
 												echo '<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> ';
 												echo '<span><a href="#"><i class="icon-heart3"></i></a></span>';
 												echo '<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>';
@@ -285,7 +289,7 @@ if(isset($_GET['from']))
 											echo '</div>';
 										echo '</div>';
 										echo '<div class="desc">';
-											echo '<h3><a href="product-detail.php?id='."{$product['id']}".'&from='."{$product['from']}".'">'."{$product['name']}".'</a></h3>';
+											echo '<h3><a href="product-detail.php?id='."{$product['id']}".'&from='."{$product['from']}".'">'."{$product['name']}"."{$product['price']}".'</a></h3>';
 											echo '<p class="price"><span>$'."{$product["price"]}".'</span></p>';
 										echo '</div>';
 								echo '</div>';
@@ -312,12 +316,11 @@ if(isset($_GET['from']))
 								<h2>Filter</h2>
 								<div class="color-wrap">
 									<p class="color-desc">
-										<a class="new" href="http://cmpe272marketplace.ml/market_place_dev_yash/shop.php?from=all" onclick="getProducts('all')"> All </a><br>
-										<a class="new" href="http://cmpe272marketplace.ml/market_place_dev_yash/shop.php?from=akshay" onclick="getProducts('akshay')"> Akshay </a><br>
-										<a class="new" href="http://cmpe272marketplace.ml/market_place_dev_yash/shop.php?from=nirbhay" onclick="getProducts('nirbhay')"> Nirbhay </a><br>
-										<a class="new" href="http://cmpe272marketplace.ml/market_place_dev_yash/shop.php?from=tapan" onclick="getProducts('tapan')"> Tapan </a><br>
-										<a class="new" href="http://cmpe272marketplace.ml/market_place_dev_yash/shop.php?from=yash" onclick="getProducts('yash')"> Yash </a><br>
-										<!-- <a href="#" class="color color-5"></a> -->
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=all"'; ?> onclick="getProducts('all')"  ><span class="new">ALL</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=akshay"'; ?> onclick="getProducts('akshay')"  ><span class="new">Akshay</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=nirbhay"'; ?> onclick="getProducts('nirbhay')" ><span class="new">Nirbhay</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=tapan"'; ?> onclick="getProducts('tapan')" ><span class="new">Tapan</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=yash"'; ?> onclick="getProducts('yash')"  ><span class="new">Yash</span></a><br>
 									</p>
 									<script>
 										function getProducts(from){
