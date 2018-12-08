@@ -1,5 +1,9 @@
 <?php 
 require 'auth.php';
+
+include 'rooturl.php';
+$rooturl = getRootURL();
+
 if(isset($_GET['from']))
 {
 	function getProductsFromAkshay() {
@@ -291,11 +295,11 @@ if(isset($_GET['from']))
 								<h2>Filter</h2>
 								<div class="color-wrap">
 									<p class="color-desc">
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=all" ><span class="new">ALL</span></a><br>
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=akshay" ><span class="new">Akshay</span></a><br>
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=nirbhay" ><span class="new">Nirbhay</span></a><br>
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=tapan" ><span class="new">Tapan</span></a><br>
-										<a href="http://cmpe272marketplace.ml/market_place_dev_nirbhay/shop.php?from=yash" ><span class="new">Yash</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=all"'; ?> ><span class="new">ALL</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=akshay"'; ?> ><span class="new">Akshay</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=nirbhay"'; ?>><span class="new">Nirbhay</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=tapan"'; ?>><span class="new">Tapan</span></a><br>
+										<a href=<?php echo '"'.$rooturl.'/shop.php?from=yash"'; ?> ><span class="new">Yash</span></a><br>
 										<!-- <a href="#" class="color color-5"></a> -->
 									</p>
 								</div>

@@ -2,6 +2,10 @@
 {
 	session_start();
 	require 'auth.php';
+
+	include 'rooturl.php';
+	$rooturl = getRootURL();
+
     $cookieString = substr($_COOKIE["product"],1);
         $cookieArray = explode(";", $cookieString);
 
@@ -13,9 +17,10 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+	<meta name="google-signin-client_id" content="853555902851-6pavsf9g93rgo2fgm4gesprkhsf2p0bn.apps.googleusercontent.com">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Akshay Marketplace</title>
+	<title>Sinnonyms Inc.</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -65,10 +70,65 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+	<script src="facebook.js"></script>
+  	<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
 	</head>
 	<body>
-		
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+			appId      : '354498385097344',
+			cookie     : true,
+			xfbml      : true,
+			version    : 'v3.2'
+			});
+			
+			FB.AppEvents.logPageView();   
+
+		};
+
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "https://connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+			
+		function signOut() {
+			var auth2 = gapi.auth2.getAuthInstance();
+			auth2.signOut().then(function () {
+			console.log('User signed out.');
+			});
+		}
+		function onLoad() {
+			gapi.load('auth2', function() {
+				gapi.auth2.init();
+			});
+			}
+			function logout()
+			{
+				FB.getLoginStatus(function(response) 
+				{
+					if (response.status == 'connected') 
+					{
+						FB.logout(function(response) 
+						{	
+							window.location.replace(<?php echo '"'.$rooturl.'/logout.php"'; ?>);
+						});
+						
+					} 
+					else 
+					{
+						signOut();
+						window.location.replace(<?php echo '"'.$rooturl.'/logout.php"'; ?>);
+					}
+				});
+			}
+
+	</script>
+
 	<div class="colorlib-loader"></div>
 
 	<div id="page">
@@ -77,11 +137,11 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="colorlib-logo"><a href="http://cmpe272marketplace.ml/market_place_dev_akshay/">Store</a></div>
+							<div id="colorlib-logo"><a href=<?php echo '"'.$rooturl.'/index.php"'; ?>>Store</a></div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
-								<li class="active"><a href="http://cmpe272marketplace.ml/market_place_dev_akshay/">Home</a></li>
+								<li class="active"><a href=<?php echo '"'.$rooturl.'/index.php"'; ?>>Home</a></li>
 								<li class="has-dropdown">
 									<a href="shop.php?from=all">Shop</a>
 									<ul class="dropdown">
@@ -100,7 +160,7 @@
 									if(isset($_SESSION['SESS_USER_FNAME']))
 									{
 								?>
-								<li><a href="logout.php">Logout <?php echo "{$_SESSION['SESS_USER_FNAME']}"?></a></li>
+								<li><a href="#" onclick='logout()'>Logout <?php echo "{$_SESSION['SESS_USER_FNAME']}"?></a></li>
 								<?php
 									}
 								?>
@@ -124,7 +184,7 @@
 					   					<h2 class="head-2">Keyboards</h2>
 					   					<h2 class="head-3">Collection</h2>
 					   					<p class="category"><span>New stylish keyboards &amp; Accessories</span></p>
-					   					<p><a href="http://cmpe272marketplace.ml/market_place_dev_akshay/shop.php?from=akshay" class="btn btn-primary">Shop Keyboards</a></p>
+					   					<p><a href=<?php echo '"'.$rooturl.'/shop.php?from=akshay"'; ?> class="btn btn-primary">Shop Keyboards</a></p>
 				   					</div>
 				   				</div>
 				   			</div>
