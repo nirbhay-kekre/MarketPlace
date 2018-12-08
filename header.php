@@ -74,7 +74,8 @@
                         <li><a href="blog.php">Blog</a></li>
                         <li><a href="about.php">About</a></li>
                         <li><a href="contact.php">Contact</a></li>
-                        <li><a href="cart.php"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+                        <li><a href="cart.php"><i class="icon-shopping-cart"></i> Cart </a></li>
+                        <li><a href="favourite.php">Favourites</a></li>
                         <?php 
                             if(isset($_SESSION['SESS_USER_FNAME']))
                             {

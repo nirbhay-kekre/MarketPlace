@@ -403,7 +403,7 @@ if(isset($_GET['from']))
 													$noStar = 5 - $fullStar - $halfStar;
 											?>
 								   			<div class="review">
-										   		<div class="user-img" style="background-image: url(images/person2.jpg)"></div>
+										   		<div class="user-img" style="background-image: url(images/default-profile-pic.png)"></div>
 										   		<div class="desc">
 										   			<h4>
 										   				<span class="text-left"><?php echo ($review['firstname']." ".$review['lastname']);?></span>
@@ -484,7 +484,7 @@ if(isset($_GET['from']))
 														$lastname = $_SESSION['SESS_USER_LNAME'];
 													?>
 													<div name="reviewContainer" class="rating">
-														<x-star-rating id="ratingStars" name="ratingStars" value="0" number="5"></x-star-rating>
+														<x-star-rating id="ratingStars" name="ratingStars" value="0" number="5" style="font-size: 25px;"></x-star-rating><br>
 														<script src="js/StarRating.js"></script>
 														<input type="hidden" id="productId" name="productId" value="<?php echo $id?>">
 														<input type="hidden" id="from" name="from" value="<?php echo $from?>">
