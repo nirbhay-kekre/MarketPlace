@@ -19,7 +19,7 @@ if(isset($_GET['from']) && isset($_GET['id']))
         $product->name=$_GET['name'];
         $product->url=$_GET['url'];
         $product->from=$_GET['from'];
-        $product->from=$_GET['price'];
+        $product->price=$_GET['price'];
         $products[0]=$product;
         setcookie($cookie_name, json_encode($products), time() + (86400 * 30), "/");
     } else {
@@ -29,7 +29,7 @@ if(isset($_GET['from']) && isset($_GET['id']))
         $product->name=$_GET['name'];
         $product->url=$_GET['url'];
         $product->from=$_GET['from'];
-        $product->from=$_GET['price'];
+        $product->price=$_GET['price'];
         array_push($products,$product);
         setcookie($cookie_name, json_encode($products), time() + (86400 * 30), "/");
     }
@@ -285,6 +285,7 @@ if(isset($_GET['from']) && isset($_GET['id']))
 							</div>
 						</div>-->
 						<?php
+						$subTotal = 0;
 						foreach($products as $e){
                            echo '<div class="product-cart">';
                                 echo '<div class="one-forth">';
@@ -296,17 +297,7 @@ if(isset($_GET['from']) && isset($_GET['id']))
                                 echo '</div>';
                                 echo '<div class="one-eight text-center">';
                                     echo '<div class="display-tc">';
-                                        echo '<span class="price">$68.00</span>';
-                                    echo '</div>';
-                                echo '</div>';
-                                echo '<div class="one-eight text-center">';
-                                    echo '<div class="display-tc">';
-                                        echo '<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">';
-                                    echo '</div>';
-                                echo '</div>';
-                                echo '<div class="one-eight text-center">';
-                                    echo '<div class="display-tc">';
-                                        echo '<span class="price">'."{$e->price}".'</span>';
+                                        echo '<span class="price">$'."{$e->price}".'</span>';
                                     echo '</div>';
                                 echo '</div>';
                                 /* echo '<div class="one-eight text-center">';
@@ -315,6 +306,7 @@ if(isset($_GET['from']) && isset($_GET['id']))
                                     echo '</div>';
                                 echo '</div>'; */
                             echo '</div>';
+                            $subTotal = $subTotal + $e->price;
                         }
                         ?>
 					</div>
@@ -338,13 +330,63 @@ if(isset($_GET['from']) && isset($_GET['id']))
 								<div class="col-md-3 col-md-push-1 text-center">
 									<div class="total">
 										<div class="sub">
-											<p><span>Subtotal:</span> <span>$200.00</span></p>
+											<p><span>Subtotal:</span> <span>
+										    <?php
+											    echo $subTotal;
+											?>
+											</span></p>
 											<p><span>Delivery:</span> <span>$0.00</span></p>
 											<p><span>Discount:</span> <span>$45.00</span></p>
 										</div>
 										<div class="grand-total">
-											<p><span><strong>Total:</strong></span> <span>$450.00</span></p>
+											<p><span><strong>Total:</strong></span> <span>
+											 <?php
+											echo $subTotal-45;
+    										?>
+											</span></p>
 										</div>
+                                        <div id="paypal-button"></div>
+                                        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+                                        <script>
+                                          paypal.Button.render({
+                                            // Configure environment
+                                            env: 'sandbox',
+                                            client: {
+                                              sandbox: 'demo_sandbox_client_id',
+                                              production: 'demo_production_client_id'
+                                            },
+                                            // Customize button (optional)
+                                            locale: 'en_US',
+                                            style: {
+                                              size: 'small',
+                                              color: 'gold',
+                                              shape: 'pill',
+                                            },
+
+                                            // Enable Pay Now checkout flow (optional)
+                                            commit: true,
+
+                                            // Set up a payment
+                                            payment: function(data, actions) {
+                                              return actions.payment.create({
+                                                transactions: [{
+                                                  amount: {
+                                                    total: '<?php echo $subTotal-45?>',
+                                                    currency: 'USD'
+                                                  }
+                                                }]
+                                              });
+                                            },
+                                            // Execute the payment
+                                            onAuthorize: function(data, actions) {
+                                              return actions.payment.execute().then(function() {
+                                                // Show a confirmation message to the buyer
+                                                window.alert('Thank you for your purchase!');
+                                              });
+                                            }
+                                          }, '#paypal-button');
+
+                                        </script>
 									</div>
 								</div>
 							</div>

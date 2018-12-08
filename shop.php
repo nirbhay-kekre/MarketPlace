@@ -256,7 +256,7 @@ if(isset($_GET['from']))
 										echo '<p class="tag"><span class="new">New</span></p>';
 										echo '<div class="cart">';
 											echo '<p>';
-												echo '<span class="addtocart"><a href="cart.php?from='."{$product['from']}".'&id='."{$product['id']}".'&url='."{$product['URL']}".'&name='."{$product['name']}".'"><i class="icon-shopping-cart"></i></a></span>';
+												echo '<span class="addtocart"><a href="cart.php?from='."{$product['from']}".'&id='."{$product['id']}".'&url='."{$product['URL']}".'&name='."{$product['name']}".'&price='."{$product['price']}".'"><i class="icon-shopping-cart"></i></a></span>';
 												echo '<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> ';
 												echo '<span><a href="#"><i class="icon-heart3"></i></a></span>';
 												echo '<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>';
