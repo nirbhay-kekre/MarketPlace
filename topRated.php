@@ -35,7 +35,7 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        $sql = 'SELECT owner, productId, ROUND( avg( rating ), 2 ) AS avgRating FROM `productReviews` GROUP BY productId HAVING owner = "'.$from.'" ORDER BY avgRating DESC LIMIT 0 , '.$limit;
+        $sql = 'SELECT owner, productId, ROUND( avg( rating ), 2 ) AS avgRating FROM `productReviews` WHERE owner = "'.$from.'" GROUP BY productId ORDER BY avgRating DESC LIMIT 0 , '.$limit;
         $topRated = array();
         $topRated[$from] = array();
         
@@ -54,8 +54,8 @@
         $conn->close();
         return $topRated;
     }
-    extract($_GET);
-    http_response_code(200);
-    header("Content-Type: application/json");
-    echo json_encode(getTopRatedMarketPlace());
+    // extract($_GET);
+    // http_response_code(200);
+    // header("Content-Type: application/json");
+    // echo json_encode(getIndividualTopRated($from));
 ?>
