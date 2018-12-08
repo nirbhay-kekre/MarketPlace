@@ -269,7 +269,7 @@ $rooturl = getRootURL();
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.php">Floral Dress</a></h3>
+								<h3><a href="shop.php?from=all">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -288,7 +288,7 @@ $rooturl = getRootURL();
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.php">Floral Dress</a></h3>
+								<h3><a href="shop.php?from=all">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -307,7 +307,7 @@ $rooturl = getRootURL();
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.php">Floral Dress</a></h3>
+								<h3><a href="shop.php?from=all">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -326,7 +326,7 @@ $rooturl = getRootURL();
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.php">Floral Dress</a></h3>
+								<h3><a href="shop.php?from=all">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>

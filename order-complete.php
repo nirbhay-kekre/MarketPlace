@@ -113,7 +113,7 @@ $rooturl = getRootURL();
 						<h2>Thank you for purchasing, Your order is complete</h2>
 						<p>
 							<a href="index.php"class="btn btn-primary">Home</a>
-							<a href="shop.php"class="btn btn-primary btn-outline">Continue Shopping</a>
+							<a href="shop.php?from=all"class="btn btn-primary btn-outline">Continue Shopping</a>
 						</p>
 					</div>
 				</div>

@@ -127,7 +127,7 @@ if(isset($_GET['removeId'])){
 				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
 				   				<div class="slider-text-inner text-center">
 				   					<h1>Shopping Cart</h1>
-				   					<h2 class="bread"><span><a href="index.php">Home</a></span> <span><a href="shop.php">Product</a></span> <span>Shopping Cart</span></h2>
+				   					<h2 class="bread"><span><a href="index.php">Home</a></span> <span><a href="shop.php?from=all">Product</a></span> <span>Shopping Cart</span></h2>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -404,7 +404,7 @@ if(isset($_GET['removeId'])){
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.php">Floral Dress</a></h3>
+								<h3><a href="shop.php?from=all">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -423,7 +423,7 @@ if(isset($_GET['removeId'])){
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.php">Floral Dress</a></h3>
+								<h3><a href="shop.php?from=all">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -442,7 +442,7 @@ if(isset($_GET['removeId'])){
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.php">Floral Dress</a></h3>
+								<h3><a href="shop.php?from=all">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -461,7 +461,7 @@ if(isset($_GET['removeId'])){
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.php">Floral Dress</a></h3>
+								<h3><a href="shop.php?from=all">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>

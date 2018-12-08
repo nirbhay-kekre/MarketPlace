@@ -277,7 +277,7 @@ $rooturl = getRootURL();
 								<h2>Filter</h2>
 								<div class="color-wrap">
 									<p class="color-desc">
-										<a href="http://cmpe272marketplace.ml/market_place_dev_akshay/shop.php" ><span class="new">ALL</span></a><br>
+										<a href="http://cmpe272marketplace.ml/market_place_dev_akshay/shop.php?from=all" ><span class="new">ALL</span></a><br>
 										<a href="http://cmpe272marketplace.ml/market_place_dev_akshay/shop.php?name=akshay" ><span class="new">Akshay</span></a><br>
 										<a href="http://cmpe272marketplace.ml/market_place_dev_akshay/shop.php?name=nirbhay" ><span class="new">Nirbhay</span></a><br>
 										<a href="http://cmpe272marketplace.ml/market_place_dev_akshay/shop.php?name=tapan" ><span class="new">Tapan</span></a><br>

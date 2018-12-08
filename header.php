@@ -60,17 +60,8 @@
                 </div>
                 <div class="col-xs-10 text-right menu-1">
                     <ul>
-                        <li class="active"><a href=<?php echo '"'.$rooturl.'/index.php"'; ?>>Home</a></li>
-                        <li class="has-dropdown">
-                            <a href="shop.php?from=all">Shop</a>
-                            <ul class="dropdown">
-                                <li><a href="product-detail.php?id=1&from=akshay">Product Detail</a></li>
-                                <li><a href="cart.php">Shipping Cart</a></li>
-                                <li><a href="checkout.php">Checkout</a></li>
-                                <li><a href="order-complete.php">Order Complete</a></li>
-                                <li><a href="add-to-wishlist.php">Wishlist</a></li>
-                            </ul>
-                        </li>
+                        <li><a href=<?php echo '"'.$rooturl.'/index.php"'; ?>>Home</a></li>
+                        <li><a href="shop.php?from=all">Shop</a></li>
                         <li><a href="blog.php">Blog</a></li>
                         <li><a href="about.php">About</a></li>
                         <li><a href="contact.php">Contact</a></li>

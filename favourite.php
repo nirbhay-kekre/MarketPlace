@@ -635,7 +635,7 @@
 								<div class="text-rights">
 									<h3 class="title">Just hurry up limited offer!</h3>
 									<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-									<p><a href="shop.php" class="btn btn-primary">Shop Now</a> <a href="#" class="btn btn-primary btn-outline">Read more</a></p>
+									<p><a href="shop.php?from=all" class="btn btn-primary">Shop Now</a> <a href="#" class="btn btn-primary btn-outline">Read more</a></p>
 								</div>
 							</div>
 						</div>

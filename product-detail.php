@@ -250,7 +250,7 @@ if(isset($_GET['from']))
 				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
 				   				<div class="slider-text-inner text-center">
 				   					<h1>Product Detail</h1>
-				   					<h2 class="bread"><span><a href="index.php">Home</a></span> <span><a href="shop.php">Product</a></span> <span>Product Detail</span></h2>
+				   					<h2 class="bread"><span><a href="index.php">Home</a></span> <span><a href="shop.php?from=all">Product</a></span> <span>Product Detail</span></h2>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -365,7 +365,7 @@ if(isset($_GET['from']))
 										echo '</div>';
 										echo '</div>';
 										echo '</div>';
-										echo '<p><a href="cart.php" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>';
+										echo '<p><a href="cart.php?from='."{$product[0]['from']}".'&id='."{$product[0]['id']}".'&url='."{$product[0]['URL']}".'&name='."{$product[0]['name']}".'&price='."{$product[0]['price']}".'" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>';
 										echo '</div>';
 										echo '</div>';
 										echo '</div>';
@@ -616,7 +616,7 @@ if(isset($_GET['from']))
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.php">Floral Dress</a></h3>
+								<h3><a href="shop.php?from=all">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -635,7 +635,7 @@ if(isset($_GET['from']))
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.php">Floral Dress</a></h3>
+								<h3><a href="shop.php?from=all">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -654,7 +654,7 @@ if(isset($_GET['from']))
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.php">Floral Dress</a></h3>
+								<h3><a href="shop.php?from=all">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -673,7 +673,7 @@ if(isset($_GET['from']))
 								</div>
 							</div>
 							<div class="desc">
-								<h3><a href="shop.php">Floral Dress</a></h3>
+								<h3><a href="shop.php?from=all">Floral Dress</a></h3>
 								<p class="price"><span>$300.00</span></p>
 							</div>
 						</div>
@@ -855,7 +855,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 }
 else
 {	
-	header("Location: shop.php");
+	header("Location: shop.php?from=all");
 	echo "ERROR 404 NOT FOUND";
 }
 ?>
