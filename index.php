@@ -392,30 +392,7 @@
 									</p>
 								</div>
 							</div>
-							<div><?php
-							$avgRating = $ratingArr[$product["from"]."_".$product['id']] > 5 ? 5: $ratingArr[$product["from"]."_".$product['id']];
-											$intAvgPart = floor( $avgRating ) ;
-											$fractionAvg = $avgRating  - $intAvgPart;
-											$fullStarAvg = $intAvgPart;
-											$halfStarAvg = $fractionAvg>0?1:0;
-											$noStarAvg = 5 - $fullStarAvg - $halfStarAvg;
-											echo '<p class="star" style="
-											color: #FFDD00;
-											margin-bottom: 0px;
-										">';
-											for($i=0; $i< $fullStarAvg ; $i++ ){ 
-												echo '<i class="icon-star-full"></i>';
-											}
-											for($i=0; $i< $halfStarAvg ; $i++ ){ 
-												echo '<i class="icon-star-half"></i>';
-											}
-											for($i=0; $i< $noStarAvg ; $i++ ){ 
-												echo '<i class="icon-star-empty"></i>';
-											}
-											echo '</p>'	;
-											echo '('.$ratingArr[$product["from"]."_".$product['id']].' stars)';
-											?>
-							</div>
+							
 							<div class="desc">
 								<h3><a href=<?php echo 'product-detail.php?id='."{$product['id']}".'&from='."{$product['from']}"?>><?php echo "{$product['name']}"; ?></a></h3>
 								<p class="price"><span>$<?php echo "{$product['price']}"; ?></span></p>
