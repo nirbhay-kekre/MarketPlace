@@ -34,8 +34,7 @@ if(isset($_GET['from']) && isset($_GET['id']))
         array_push($products,$product);
         setcookie($cookie_name, json_encode($products), time() + (86400 * 30), "/");
     }
-}
-if(isset($_GET['removeId'])){
+}elseif(isset($_GET['removeId'])){
     $cookie_name = "products";
     $products = json_decode($_COOKIE[$cookie_name]);
     $newArr=array();
@@ -50,6 +49,8 @@ if(isset($_GET['removeId'])){
     }
     $products=$newArr;
     setcookie($cookie_name, json_encode($newArr), time() + (86400 * 30), "/");
+}else{
+    $products = json_decode($_COOKIE[$cookie_name]);
 }
 ?>
 
