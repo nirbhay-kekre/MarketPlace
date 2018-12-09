@@ -211,7 +211,7 @@
                     </div>
 
                     <div id="g-btn" class="g-text"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
-                    <div id="fb-btn" class="fb-text">login with facebook <i class="fa fa-heart"></i> <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button></div>
+                    <div id="fb-btn" class="copy-text" style="bottom: 50px;">login with facebook <i class="fa fa-heart"></i> <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button></div>
                     <div id="register-btn" class="copy-text">New to Marketplace? <i class="fa fa-heart"></i> <a href="registerform.php">Register</a></div>
                 </div>
                 <div class="col-md-8 banner-sec">
@@ -219,7 +219,6 @@
                         <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
@@ -240,14 +239,7 @@
                             </div>	
                         </div>
                         </div>
-                        <div class="carousel-item">
-                        <img class="d-block img-fluid" src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <div class="banner-text">
-                                <h2>This is Heaven</h2>
-                                <p>Marketplace is the modern shop</p>
-                            </div>	
-                        </div>
+                        
                     </div>
                     </div>	   
                     
