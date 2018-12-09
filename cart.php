@@ -56,7 +56,7 @@ if(isset($_GET['from']) && isset($_GET['id']))
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Store Template</title>
+	<title>SINNONYMS INC.</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -140,7 +140,7 @@ if(isset($_GET['from']) && isset($_GET['id']))
 				<div class="row row-pb-md">
 					<div class="col-md-10 col-md-offset-1">
 						<div class="process-wrap">
-							<div class="process text-center active">
+							<!--<div class="process text-center active">
 								<p><span>01</span></p>
 								<h3>Shopping Cart</h3>
 							</div>
@@ -151,7 +151,7 @@ if(isset($_GET['from']) && isset($_GET['id']))
 							<div class="process text-center">
 								<p><span>03</span></p>
 								<h3>Order Complete</h3>
-							</div>
+							</div>-->
 						</div>
 					</div>
 				</div>
@@ -500,82 +500,82 @@ if(isset($_GET['from']) && isset($_GET['id']))
 			</div>
 		</div>
 
-		<footer id="colorlib-footer" role="contentinfo">
-			<div class="container">
-				<div class="row row-pb-md">
-					<div class="col-md-3 colorlib-widget">
-						<h4>About Store</h4>
-						<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-						<p>
-							<ul class="colorlib-social-icons">
-								<li><a href="#"><i class="icon-twitter"></i></a></li>
-								<li><a href="#"><i class="icon-facebook"></i></a></li>
-								<li><a href="#"><i class="icon-linkedin"></i></a></li>
-								<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							</ul>
-						</p>
-					</div>
-					<div class="col-md-2 colorlib-widget">
-						<h4>Customer Care</h4>
-						<p>
-							<ul class="colorlib-footer-links">
-								<li><a href="#">Contact</a></li>
-								<li><a href="#">Returns/Exchange</a></li>
-								<li><a href="#">Gift Voucher</a></li>
-								<li><a href="#">Wishlist</a></li>
-								<li><a href="#">Special</a></li>
-								<li><a href="#">Customer Services</a></li>
-								<li><a href="#">Site maps</a></li>
-							</ul>
-						</p>
-					</div>
-					<div class="col-md-2 colorlib-widget">
-						<h4>Information</h4>
-						<p>
-							<ul class="colorlib-footer-links">
-								<li><a href="#">About us</a></li>
-								<li><a href="#">Delivery Information</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Support</a></li>
-								<li><a href="#">Order Tracking</a></li>
-							</ul>
-						</p>
-					</div>
+    <footer id="colorlib-footer" role="contentinfo">
+        <div class="container">
+            <div class="row row-pb-md">
+                <div class="col-md-3 colorlib-widget">
+                    <h4>About Store</h4>
+                    <p>Sinnonyms inc. is a marketplace created for the purpose of the CMPE 272 term project submission. This marketplace combines the websites of Akshay Jaiswal, Nirbhay Kekre, Tapan Kulkarni and Yash Mahajan</p>
+                    <p>
+                    <ul class="colorlib-social-icons">
+                        <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon-facebook"></i></a></li>
+                        <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                        <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-md-2 colorlib-widget">
+                    <h4>Customer Care</h4>
+                    <p>
+                    <ul class="colorlib-footer-links">
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Returns/Exchange</a></li>
+                        <li><a href="#">Gift Voucher</a></li>
+                        <li><a href="#">Wishlist</a></li>
+                        <li><a href="#">Special</a></li>
+                        <li><a href="#">Customer Services</a></li>
+                        <li><a href="#">Site maps</a></li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-md-2 colorlib-widget">
+                    <h4>Information</h4>
+                    <p>
+                    <ul class="colorlib-footer-links">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                    </ul>
+                    </p>
+                </div>
 
-					<div class="col-md-2">
-						<h4>News</h4>
-						<ul class="colorlib-footer-links">
-							<li><a href="blog.php">Blog</a></li>
-							<li><a href="#">Press</a></li>
-							<li><a href="#">Exhibitions</a></li>
-						</ul>
-					</div>
+                <!--<div class="col-md-2">
+                    <h4>News</h4>
+                    <ul class="colorlib-footer-links">-->
+                        <!-- <li><a href="blog.php">Blog</a></li> -->
+                        <!--<li><a href="#">Press</a></li>
+                        <li><a href="#">Exhibitions</a></li>
+                    </ul>
+                </div>-->
 
-					<div class="col-md-3">
-						<h4>Contact Information</h4>
-						<ul class="colorlib-footer-links">
-							<li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
-							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-							<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-							<li><a href="#">yoursite.com</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="copy">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<p>
-							
+                <div class="col-md-3">
+                    <h4>Contact Information</h4>
+                    <ul class="colorlib-footer-links">
+                        <li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
+                        <li><a href="">+ 1235 2355 98</a></li>
+                        <li><a href="mailto:akshjaiswalfree@gmail.com">akshjaiswalfree@gmail.com</a></li>
+                        <li><a href="#">sinnonyms.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="copy">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p style="color:white">
+
 							<span class="block"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span> 
-							<span class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a> , <a href="http://pexels.com/" target="_blank">Pexels.com</a></span>
-						</p>
-					</div>
-				</div>
-			</div>
-		</footer>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a style= "color:white" href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span>
+                        <span class="block">Demo Images: <a style= "color:white" href="http://unsplash.co/" target="_blank">Unsplash</a> , <a style= "color:white" href="http://pexels.com/" target="_blank">Pexels.com</a></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 	</div>
 
 	<div class="gototop js-top">
