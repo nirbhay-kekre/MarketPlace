@@ -365,6 +365,7 @@ if(isset($_GET['from']) && isset($_GET['id']))
                                               return actions.payment.execute().then(function() {
                                                 // Show a confirmation message to the buyer
                                                 window.alert('Thank you for your purchase!');
+                                                $products=array();
                                               });
                                             }
                                           }, '#paypal-button');
