@@ -38,7 +38,7 @@ if(isset($_GET['from']) && isset($_GET['id']))
     $newArr=array();
     $isRemoved = false;
     foreach ($products as $p){
-        if($p->id==$_GET['removeId'] && $p->from==$_GET['removeFrom']){
+        if($p->id==$_GET['removeId'] && $p->from==$_GET['removeFrom'] && !$isRemoved){
             $isRemoved=true;
         }else{
             array_push($newArr,$p);
