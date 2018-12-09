@@ -451,7 +451,7 @@ if(isset($_GET['from']))
 													return false;//to stop redirecting
 												}
 												</script>
-												<form name="postReviewForm" onsubmit="return postRatingToServer()" action="<?php echo $rooturl?>/product-detail.php?id=<?php echo $id?>&from=<?php echo $from?>">
+												<form name="postReviewForm" onsubmit="return postRatingToServer()" action="<?php echo $rooturl?>/submit.php?id=<?php echo $id?>&from=<?php echo $from?>">
 													<?php
 														$userId = $_SESSION['SESS_USER_ID'];
 														$firstname = $_SESSION['SESS_USER_FNAME'];
