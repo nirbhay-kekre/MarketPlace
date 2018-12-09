@@ -9,10 +9,9 @@ class Products{
     public $url="";
     public $price="";
 }
-
+$cookie_name = "products";
 if(isset($_GET['from']) && isset($_GET['id']))
 {
-    $cookie_name = "products";
     if(!isset($_COOKIE[$cookie_name])) {
         $products=array();
         $product=new Products();
@@ -35,16 +34,14 @@ if(isset($_GET['from']) && isset($_GET['id']))
         setcookie($cookie_name, json_encode($products), time() + (86400 * 30), "/");
     }
 }elseif(isset($_GET['removeId'])){
-    $cookie_name = "products";
     $products = json_decode($_COOKIE[$cookie_name]);
     $newArr=array();
     $isRemoved = false;
     foreach ($products as $p){
-        if($isRemoved){
-            array_push($newArr,$p);
-        }elseif(!($p->id==$_GET['removeId'] && $p->from==$_GET['removeFrom'])){
-            array_push($newArr,$p);
+        if($p->id==$_GET['removeId'] && $p->from==$_GET['removeFrom']){
             $isRemoved=true;
+        }else{
+            array_push($newArr,$p);
         }
     }
     $products=$newArr;
