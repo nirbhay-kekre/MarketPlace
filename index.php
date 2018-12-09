@@ -115,15 +115,15 @@
 
 	$recentfiveproducts = [];
 	$i = 0;
-	echo '<br><pre>';
-	print_r($recentFive);
-	echo '</pre><br>';
+	// echo '<pre><pre>';
+	// print_r($recentFive);
+	// echo '</pre><br>';
 	foreach(array_reverse($recentFive) as $key=>$object)
 	{
-		echo '<br><pre>';
-		print_r($object);
-		echo '</pre><br>';
-
+		// echo '<br><pre>';
+		// print_r($object);
+		// echo '</pre><br>';
+			$object = json_decode($object);
 			if($object->from == 'akshay')
 			{
 				$recentfiveproducts = array_merge($recentfiveproducts, getProductsFromAkshay('id[]='.$object->id));

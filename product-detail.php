@@ -11,7 +11,8 @@ $from = $_GET['from'];
 	  } else{
 		  $recentFive=json_decode($recentFive);
 	  }
-	  array_push ($recentFive, array("id" => $id, "from" => $from));
+	  array_push($recentFive, json_encode(array("id" => $id, "from" => $from)));
+	  $recentFive = array_unique($recentFive);
 	  $recentFive = array_slice($recentFive, -5,5);
   }
 	setcookie("recentFive",json_encode($recentFive) , time() + (30 * 24 * 60 * 60), "/", "sinnonyms.ml");
@@ -111,40 +112,6 @@ if(isset($_GET['from']))
 		$resp = curl_exec($curl);
 		$product = json_decode($resp, true);
 	}
-	// else if($_GET['from'] == "nirbhay")
-	// {
-	// 	curl_setopt_array($curl, array(
-	// 		CURLOPT_RETURNTRANSFER => 1,
-	// 		CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id='."$id",
-	// 		CURLOPT_USERAGENT => 'Codular Sample cURL Request'
-	// 	));
-	// 	$resp = curl_exec($curl);
-	// 	$product = json_decode($resp, true);
-	
-	// }
-	// else if($_GET['from'] == "tapan")
-	// {
-	// 	curl_setopt_array($curl, array(
-	// 		CURLOPT_RETURNTRANSFER => 1,
-	// 		CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id='."$id",
-	// 		CURLOPT_USERAGENT => 'Codular Sample cURL Request'
-	// 	));
-	// 	$resp = curl_exec($curl);
-	// 	$product = json_decode($resp, true);
-	
-	// }
-	// else if($_GET['from'] == "yash")
-	// {
-	// 	curl_setopt_array($curl, array(
-	// 		CURLOPT_RETURNTRANSFER => 1,
-	// 		CURLOPT_URL => 'http://akshayjaiswal.me/getproductbyid.php?id='."$id",
-	// 		CURLOPT_USERAGENT => 'Codular Sample cURL Request'
-	// 	));
-		
-	// 	$resp = curl_exec($curl);
-	// 	$product = json_decode($resp, true);
-	// }
-
 	
 	if (curl_error($curl)) 
 	{
@@ -153,11 +120,7 @@ if(isset($_GET['from']))
 	}
 	$productJSON = json_encode($product[0]);
 
-	if (curl_error($curl)) 
-	{
-		$error_msg = curl_error($curl);
-		echo $error_msg;
-	}
+
 	// $reviewJSON = json_encode($reviews[0]);
 
 	// echo $productJSON;
@@ -228,9 +191,8 @@ if(isset($_GET['from']))
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	
 	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+
+	
 	<meta name="google-signin-client_id" content="853555902851-6pavsf9g93rgo2fgm4gesprkhsf2p0bn.apps.googleusercontent.com">
 	<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 	</head>
