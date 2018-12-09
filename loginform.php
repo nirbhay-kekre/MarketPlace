@@ -200,10 +200,6 @@
                             <input type="password" class="form-control" id="password" name="password" placeholder="" required>
                         </div>
                         <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input">
-                                <small>Remember Me</small>
-                            </label>
                             <button type="submit" id="btn-submit" class="btn btn-login float-right">Submit</button>
                         </div>
                     </form>

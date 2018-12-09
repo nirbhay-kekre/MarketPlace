@@ -644,49 +644,6 @@
 			</div>
 		</div>
 
-		<div class="colorlib-shop">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
-						<h2><span>Top Rated on Marketplace</span></h2>
-						<p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
-				<div class="row">
-				<?php
-					echo '<div class="col-md-10 col-md-push-2">';
-						echo '<div class="row row-pb-lg">';
-						// echo '<pre>'; print_r($products); echo '</pre>';
-						foreach($products as $product)
-						{
-							
-							echo '<div class="col-md-4 text-center">';
-						
-								echo '<div class="product-entry">';
-									echo '<div class="product-img" style="background-image: url('."{$product['URL']}".');">';
-									echo '<p class="tag"><span class="new">New</span></p>';
-									echo '<div class="cart">';
-										echo '<p>';
-											echo '<span class="addtocart"><a href="cart.php?from='."{$product['from']}".'&id='."{$product['id']}".'&url='."{$product['URL']}".'&name='."{$product['name']}".'&price='."{$product['price']}".'"><i class="icon-shopping-cart"></i></a></span>';
-											echo '<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> ';
-											echo '<span><a href="#"><i class="icon-heart3"></i></a></span>';
-											echo '<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>';
-										echo '</p>';	
-										echo '</div>';
-									echo '</div>';
-									echo '<div class="desc">';
-										echo '<h3><a href="product-detail.php?id='."{$product['id']}".'&from='."{$product['from']}".'">'."{$product['name']}"."{$product['price']}".'</a></h3>';
-										echo '<p class="price"><span>$'."{$product["price"]}".'</span></p>';
-									echo '</div>';
-							echo '</div>';
-							echo '</div>';
-						}
-						echo '</div>';
-					?>
-				</div>
-			</div>
-		</div>
-
 		<div id="colorlib-testimony" class="colorlib-light-grey">
 			<div class="container">
 				<div class="row">
@@ -699,31 +656,31 @@
 						<div class="owl-carousel2">
 							<div class="item">
 								<div class="testimony text-center">
-									<span class="img-user" style="background-image: url(images/person1.jpg);"></span>
-									<span class="user">Alysha Myers</span>
+									<span class="img-user" style="background-image: url(images/default-profile-pic.png);"></span>
+									<span class="user">Akshay Jaiswal</span>
 									<small>Miami Florida, USA</small>
 									<blockquote>
-										<p>" A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+										<p>Satisfactory customer service and support</p>
 									</blockquote>
 								</div>
 							</div>
 							<div class="item">
 								<div class="testimony text-center">
-									<span class="img-user" style="background-image: url(images/person2.jpg);"></span>
-									<span class="user">James Fisher</span>
+									<span class="img-user" style="background-image: url(images/default-profile-pic.png);"></span>
+									<span class="user">Tapan Kulkarni</span>
 									<small>New York, USA</small>
 									<blockquote>
-										<p>One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+										<p>Sinnonyms is the best place to shop from.</p>
 									</blockquote>
 								</div>
 							</div>
 							<div class="item">
 								<div class="testimony text-center">
 									<span class="img-user" style="background-image: url(images/person3.jpg);"></span>
-									<span class="user">Jacob Webb</span>
+									<span class="user">Test test</span>
 									<small>Athens, Greece</small>
 									<blockquote>
-										<p>Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+										<p>Amazing product! Great value for money.</p>
 									</blockquote>
 								</div>
 							</div>
@@ -733,51 +690,6 @@
 			</div>
 		</div>
 
-		<div class="colorlib-blog">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading">
-						<h2>Recent Blog</h2>
-						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.php" class="blog-img" style="background-image: url(images/blog-1.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">02</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.php">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.php" class="blog-img" style="background-image: url(images/blog-2.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">02</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.php">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.php" class="blog-img" style="background-image: url(images/blog-3.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">02</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.php">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
-					</div>
-				</div>
-			</div>
-		</div>
 		
 		<div id="colorlib-subscribe">
 			<div class="overlay"></div>
@@ -849,7 +761,7 @@
 					<div class="col-md-2">
 						<h4>News</h4>
 						<ul class="colorlib-footer-links">
-							<li><a href="blog.php">Blog</a></li>
+							<li><a href="#">Blog</a></li>
 							<li><a href="#">Press</a></li>
 							<li><a href="#">Exhibitions</a></li>
 						</ul>
@@ -860,8 +772,8 @@
 						<ul class="colorlib-footer-links">
 							<li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
 							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-							<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-							<li><a href="#">yoursite.com</a></li>
+							<li><a href="mailto:info@sinnonyms.com">info@sinnonyms.com</a></li>
+							<li><a href="#">sinnonyms.com</a></li>
 						</ul>
 					</div>
 				</div>

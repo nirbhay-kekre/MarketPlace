@@ -8,7 +8,6 @@
 
 	include 'topRated.php';
 	$topratedarray = getTopRatedMarketPlace();
-	// print_r($topratedarray);
 
 	$appendstring ="";
 	$ratingArr = [];
@@ -26,18 +25,14 @@
 	}
 
 	$idarray1 = getappendstring($topratedarray['akshay'], 'akshay');
-
 	$idarray2 = getappendstring($topratedarray['nirbhay'], 'nirbhay');
-
 	$idarray3 = getappendstring($topratedarray['tapan'], 'tapan');
-
 	$idarray4 = getappendstring($topratedarray['yash'], 'yash');
 
 	function getProductsFromAkshay($idarray1) 
 	{
 		if($idarray1 != '')
 		{
-			// echo 'http://akshayjaiswal.me/getproductbyid.php?'.$idarray1;
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
 				CURLOPT_RETURNTRANSFER => 1,
@@ -47,7 +42,6 @@
 			$resp = curl_exec($curl);
 
 			$product = json_decode($resp, true);
-			// print_r($product);
 			return $product;
 		}
 		else
@@ -116,7 +110,44 @@
 		}
 	}
 
-	// $products = getProductsFromAkshay($idarray1);
+	$recentFive = $_COOKIE["recentFive"];
+	$recentFive=json_decode($recentFive);
+
+	$recentfiveproducts = [];
+	$i = 0;
+	echo '<br><pre>';
+	print_r($recentFive);
+	echo '</pre><br>';
+	foreach(array_reverse($recentFive) as $key=>$object)
+	{
+		echo '<br><pre>';
+		print_r($object);
+		echo '</pre><br>';
+
+			if($object->from == 'akshay')
+			{
+				$recentfiveproducts = array_merge($recentfiveproducts, getProductsFromAkshay('id[]='.$object->id));
+			}
+			else if($object->from == 'nirbhay')
+			{
+				$recentfiveproducts = array_merge($recentfiveproducts, getProductsFromNirbhay('id[]='.$object->id));
+			}
+			else if($object->from == 'tapan')
+			{
+				$recentfiveproducts = array_merge($recentfiveproducts, getProductsFromTapan('id[]='.$object->id));
+			}
+			else if($object->from == 'yash')
+			{
+				$recentfiveproducts = array_merge($recentfiveproducts, getProductsFromYash('id[]='.$object->id));
+			}
+		
+	}
+
+	// echo "RECENT PRODUCTS<br>";
+	// print_r($recentfiveproducts);
+	// echo "<br>RECENT PRODUCTS";
+
+	$recentproducts = array_merge();
 
 	$products = array_merge(getProductsFromAkshay($idarray1), getProductsFromNirbhay($idarray2), getProductsFromYash($idarray4));
 	// echo print_r($products);
@@ -335,6 +366,68 @@
 			</div>
 		</div>
 
+		<div class="colorlib-shop">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
+						<h2><span>Recently visited</span></h2>
+						<p></p>
+					</div>
+				</div>
+				<div class="row">
+            <?php
+                foreach($recentfiveproducts as $product)
+                {
+            ?>
+					<div class="col-md-3 text-center">
+						<div class="product-entry">
+							<div class="product-img" style="background-image: url(<?php echo "{$product['URL']}"; ?>);">
+								<p class="tag"><span class="new">New</span></p>
+								<div class="cart">
+									<p>
+										<span class="addtocart"><a href=<?php echo 'cart.php?from='."{$product['from']}".'&id='."{$product['id']}".'&url='."{$product['URL']}".'&name='."{$product['name']}".'&price='."{$product['price']}"?>><i class="icon-shopping-cart"></i></a></span> 
+										<span><a href="product-detail.php"><i class="icon-eye"></i></a></span> 
+										<span><a href="#"><i class="icon-heart3"></i></a></span>
+										<span><a href="add-to-wishlist.php"><i class="icon-bar-chart"></i></a></span>
+									</p>
+								</div>
+							</div>
+							<div><?php
+							$avgRating = $ratingArr[$product["from"]."_".$product['id']] > 5 ? 5: $ratingArr[$product["from"]."_".$product['id']];
+											$intAvgPart = floor( $avgRating ) ;
+											$fractionAvg = $avgRating  - $intAvgPart;
+											$fullStarAvg = $intAvgPart;
+											$halfStarAvg = $fractionAvg>0?1:0;
+											$noStarAvg = 5 - $fullStarAvg - $halfStarAvg;
+											echo '<p class="star" style="
+											color: #FFDD00;
+											margin-bottom: 0px;
+										">';
+											for($i=0; $i< $fullStarAvg ; $i++ ){ 
+												echo '<i class="icon-star-full"></i>';
+											}
+											for($i=0; $i< $halfStarAvg ; $i++ ){ 
+												echo '<i class="icon-star-half"></i>';
+											}
+											for($i=0; $i< $noStarAvg ; $i++ ){ 
+												echo '<i class="icon-star-empty"></i>';
+											}
+											echo '</p>'	;
+											echo '('.$ratingArr[$product["from"]."_".$product['id']].' stars)';
+											?>
+							</div>
+							<div class="desc">
+								<h3><a href=<?php echo 'product-detail.php?id='."{$product['id']}".'&from='."{$product['from']}"?>><?php echo "{$product['name']}"; ?></a></h3>
+								<p class="price"><span>$<?php echo "{$product['price']}"; ?></span></p>
+							</div>
+						</div>
+                    </div>
+            <?php
+                }
+            ?>
+				</div>
+			</div>
+		</div>
 
 		<div id="colorlib-intro" class="colorlib-intro" style="background-image: url(images/cover-img-1.jpg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
@@ -378,31 +471,31 @@
 						<div class="owl-carousel2">
 							<div class="item">
 								<div class="testimony text-center">
-									<span class="img-user" style="background-image: url(images/person1.jpg);"></span>
-									<span class="user">Alysha Myers</span>
+									<span class="img-user" style="background-image: url(images/default-profile-pic.png);"></span>
+									<span class="user">Akshay Jaiswal</span>
 									<small>Miami Florida, USA</small>
 									<blockquote>
-										<p>" A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+										<p>Satisfactory customer service and support</p>
 									</blockquote>
 								</div>
 							</div>
 							<div class="item">
 								<div class="testimony text-center">
-									<span class="img-user" style="background-image: url(images/person2.jpg);"></span>
-									<span class="user">James Fisher</span>
+									<span class="img-user" style="background-image: url(images/default-profile-pic.png);"></span>
+									<span class="user">Tapan Kulkarni</span>
 									<small>New York, USA</small>
 									<blockquote>
-										<p>One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+										<p>Sinnonyms is the best place to shop from.</p>
 									</blockquote>
 								</div>
 							</div>
 							<div class="item">
 								<div class="testimony text-center">
-									<span class="img-user" style="background-image: url(images/person3.jpg);"></span>
-									<span class="user">Jacob Webb</span>
+									<span class="img-user" style="background-image: url(images/default-profile-pic.png);"></span>
+									<span class="user">Test test</span>
 									<small>Athens, Greece</small>
 									<blockquote>
-										<p>Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+										<p>Amazing product! Great value for money.</p>
 									</blockquote>
 								</div>
 							</div>
@@ -412,52 +505,6 @@
 			</div>
 		</div>
 
-		<div class="colorlib-blog">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading">
-						<h2>Recent Blog</h2>
-						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.php" class="blog-img" style="background-image: url(images/blog-1.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">02</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.php">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.php" class="blog-img" style="background-image: url(images/blog-2.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">02</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.php">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
-					</div>
-					<div class="col-md-4">
-						<article class="article-entry">
-							<a href="blog.php" class="blog-img" style="background-image: url(images/blog-3.jpg);"></a>
-							<div class="desc">
-								<p class="meta"><span class="day">02</span><span class="month">Mar</span></p>
-								<p class="admin"><span>Posted by:</span> <span>Noah Henderson</span></p>
-								<h2><a href="blog.php">Openning Branches</a></h2>
-								<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life</p>
-							</div>
-						</article>
-					</div>
-				</div>
-			</div>
-		</div>
-		
 		<div id="colorlib-subscribe">
 			<div class="overlay"></div>
 			<div class="container">
@@ -488,7 +535,7 @@
 				<div class="row row-pb-md">
 					<div class="col-md-3 colorlib-widget">
 						<h4>About Store</h4>
-						<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+						<p>Sinnonyms inc. is a marketplace created for the purpose of the CMPE 272 term project submission. This marketplace combines the websites of Akshay Jaiswal, Nirbhay Kekre, Tapan Kulkarni and Yash Mahajan</p>
 						<p>
 							<ul class="colorlib-social-icons">
 								<li><a href="#"><i class="icon-twitter"></i></a></li>
@@ -528,7 +575,7 @@
 					<div class="col-md-2">
 						<h4>News</h4>
 						<ul class="colorlib-footer-links">
-							<li><a href="blog.php">Blog</a></li>
+							<!-- <li><a href="blog.php">Blog</a></li> -->
 							<li><a href="#">Press</a></li>
 							<li><a href="#">Exhibitions</a></li>
 						</ul>
@@ -538,9 +585,9 @@
 						<h4>Contact Information</h4>
 						<ul class="colorlib-footer-links">
 							<li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
-							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-							<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-							<li><a href="#">yoursite.com</a></li>
+							<li><a href="">+ 1235 2355 98</a></li>
+							<li><a href="mailto:akshjaiswalfree@gmail.com">akshjaiswalfree@gmail.com</a></li>
+							<li><a href="#">sinnonyms.com</a></li>
 						</ul>
 					</div>
 				</div>
@@ -548,12 +595,12 @@
 			<div class="copy">
 				<div class="row">
 					<div class="col-md-12 text-center">
-						<p>
+						<p style="color:white">
 							
 							<span class="block"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a style= "color:white" href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span> 
-							<span class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a> , <a href="http://pexels.com/" target="_blank">Pexels.com</a></span>
+							<span class="block">Demo Images: <a style= "color:white" href="http://unsplash.co/" target="_blank">Unsplash</a> , <a style= "color:white" href="http://pexels.com/" target="_blank">Pexels.com</a></span>
 						</p>
 					</div>
 				</div>
