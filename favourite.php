@@ -630,7 +630,7 @@
 				<div class="row row-pb-md">
 					<div class="col-md-3 colorlib-widget">
 						<h4>About Store</h4>
-						<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+						<p>Sinnonyms inc. is a marketplace created for the purpose of the CMPE 272 term project submission. This marketplace combines the websites of Akshay Jaiswal, Nirbhay Kekre, Tapan Kulkarni and Yash Mahajan</p>
 						<p>
 							<ul class="colorlib-social-icons">
 								<li><a href="#"><i class="icon-twitter"></i></a></li>
@@ -670,7 +670,7 @@
 					<div class="col-md-2">
 						<h4>News</h4>
 						<ul class="colorlib-footer-links">
-							<li><a href="#">Blog</a></li>
+							<!-- <li><a href="blog.php">Blog</a></li> -->
 							<li><a href="#">Press</a></li>
 							<li><a href="#">Exhibitions</a></li>
 						</ul>
@@ -680,8 +680,8 @@
 						<h4>Contact Information</h4>
 						<ul class="colorlib-footer-links">
 							<li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
-							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-							<li><a href="mailto:info@sinnonyms.com">info@sinnonyms.com</a></li>
+							<li><a href="">+ 1235 2355 98</a></li>
+							<li><a href="mailto:akshjaiswalfree@gmail.com">akshjaiswalfree@gmail.com</a></li>
 							<li><a href="#">sinnonyms.com</a></li>
 						</ul>
 					</div>
@@ -690,12 +690,12 @@
 			<div class="copy">
 				<div class="row">
 					<div class="col-md-12 text-center">
-						<p>
+						<p style="color:white">
 							
 							<span class="block"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart2" aria-hidden="true"></i> by <a style= "color:white" href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></span> 
-							<span class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a> , <a href="http://pexels.com/" target="_blank">Pexels.com</a></span>
+							<span class="block">Demo Images: <a style= "color:white" href="http://unsplash.co/" target="_blank">Unsplash</a> , <a style= "color:white" href="http://pexels.com/" target="_blank">Pexels.com</a></span>
 						</p>
 					</div>
 				</div>

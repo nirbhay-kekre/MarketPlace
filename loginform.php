@@ -225,7 +225,7 @@
                             <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <div class="banner-text">
-                                    <h2>This is Heaven</h2>
+                                    <h2>This is Sinnonyms inc.</h2>
                                     <p>Marketplace is the next best thing</p>
                                 </div>	
                           </div>
@@ -234,7 +234,7 @@
                         <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
                             <div class="banner-text">
-                                <h2>This is Heaven</h2>
+                                <h2>This is Sinnonyms inc.</h2>
                                 <p>Marketplace is the next best thing</p>
                             </div>	
                         </div>

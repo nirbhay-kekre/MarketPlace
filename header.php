@@ -62,7 +62,6 @@
                     <ul>
                         <li><a href=<?php echo '"'.$rooturl.'/index.php"'; ?>>Home</a></li>
                         <li><a href="shop.php?from=all">Shop</a></li>
-                        <li><a href="blog.php">Blog</a></li>
                         <li><a href="about.php">About</a></li>
                         <li><a href="contact.php">Contact</a></li>
                         <li><a href="cart.php"><i class="icon-shopping-cart"></i> Cart </a></li>
