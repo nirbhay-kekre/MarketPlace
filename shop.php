@@ -229,7 +229,7 @@ if(isset($_GET['from']))
 						}
 					</script>
 					<input type="text" id="search" placeholder="Search Products" 
-						style="width: 60%;border: 2px solid #cccccc;border-radius: 5px;padding: 20px;font-size: large;"/>
+						style="width: 60%;border: 2px solid #cccccc;border-radius: 5px;padding: 20px;font-size: large;" value="<?php echo $_GET['search']?$_GET['search']:''; ?>"/>
 						<button class="btn btn-primary" style="margin-left:10px" onclick="search()">Search</button>
 				</div>
 				<div class="row">
