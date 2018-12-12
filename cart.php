@@ -47,7 +47,8 @@ elseif(isset($_GET['removeId'])){
     }
     $products=$newArr;
     setcookie($cookie_name, json_encode($newArr), time() + (86400 * 30), "/");
-}else{
+}
+else{
     $products = json_decode($_COOKIE[$cookie_name]);
 }
 ?>
