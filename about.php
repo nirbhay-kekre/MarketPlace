@@ -97,33 +97,46 @@ $rooturl = getRootURL();
 								<div class="col-md-12 about">
 									<h2>About</h2>
 
-									<ul>
+									<!-- <ul>
 										<li><a href="#">History</a></li>
 										<li><a href="#">Staff</a></li>
 										<li><a href="#">Connect with us</a></li>
 										<li><a href="#">Faqs</a></li>
 										<li><a href="#">Career</a></li>
-									</ul>
+									</ul> -->
 								</div>
 							</div>
 						</div>
 						<div class="col-three-forth">
-							<h2>History</h2>
+							<h2>Summary</h2>
 							<div class="row">
 								<div class="col-md-12">
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+									<p>Sinnonyms is a market place of 4 websites http://yashmahajan.com, http://nirbhaykekre.com, http://akshayjaiswal.me and http://www.tapanhere.com</p>
 
-									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+									<p>Sinnonyms is created by Four Graduate Students of Software Engineering at San Jose State University towards their team project for CMPE 272.</p>
 
-									<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+									<p>This Market Place has single user login for whole marketplace including each member sites. User can also Sign in through Google and Facebook.</p>
 
 									<div class="row row-pb-sm">
-										<div class="col-md-6">
-											<img class="img-responsive" src="images/about.jpg" alt="">
+										<div class="col-md-3">
+											<img class="img-responsive" src="https://sinnonyms.ml/images/akshay.JPG" alt="">
+												<br/>
+											<h4>Akshay Jaiswal</h4>
 										</div>
-										<div class="col-md-6">
-											<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-											<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+										<div class="col-md-3">
+											<img class="img-responsive" src="http://nirbhaykekre.com/img/nirbhay.jpg" alt="">
+											<br/>
+											<h4>Nirbhay Kekre</h4>
+										</div>
+										<div class="col-md-3">
+											<img class="img-responsive" src="https://media.licdn.com/dms/image/C5103AQGmNWe2_CYCYw/profile-displayphoto-shrink_200_200/0?e=1550102400&v=beta&t=Aty4eo_jKfnhuGfU27pvQnnYmttAUWY65rxdfZlaieY" alt="">
+											<br/>
+											<h4>Yash Mahajan</h4>
+										</div>
+										<div class="col-md-3">
+											<img class="img-responsive" src="https://sinnonyms.ml/images/tapan.png" alt="">
+											<br/>
+											<h4>Tapan Kulkarni</h4>
 										</div>
 									</div>
 
