@@ -368,14 +368,14 @@ if(isset($_GET['from']))
                     </p>
                 </div>
 
-                <!--<div class="col-md-2">
+                <div class="col-md-2">
                     <h4>News</h4>
-                    <ul class="colorlib-footer-links">-->
+                    <ul class="colorlib-footer-links">
                         <!-- <li><a href="blog.php">Blog</a></li> -->
-                        <!--<li><a href="#">Press</a></li>
+                        <li><a href="#">Press</a></li>
                         <li><a href="#">Exhibitions</a></li>
                     </ul>
-                </div>-->
+                </div>
 
                 <div class="col-md-3">
                     <h4>Contact Information</h4>
